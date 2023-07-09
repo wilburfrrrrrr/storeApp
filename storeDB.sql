@@ -1,3 +1,4 @@
+show databases;
 CREATE DATABASE theStore;
 USE theStore;
 
