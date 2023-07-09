@@ -8,6 +8,7 @@ import Register from './Components/register';
 import Login from './Components/login';
 import Cart from './Components/cart';
 import Stock from './Components/stock';
+import Administrator from './Components/administrator';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/viewAdmin' element={<Stock />}/>
+        <Route path='/admin' element={<Administrator />} />
       </Routes>
     </Router>
   );

@@ -1,6 +1,8 @@
 import '../Styles/login.css';
 import React, {useState} from 'react';
-import logo from '../Images/appImages/logo.jpeg';
+import logo from '../Images/appImages/Logo.jpeg';
+import { Link } from 'react-router-dom';
+
 import axios from 'axios';
 
 const CompShowLogin = () => { // Se define el componente.
@@ -67,7 +69,9 @@ const CompShowLogin = () => { // Se define el componente.
                     <input type="submit" className="btn-submit" value="Entrar" />
                 </div>
                 <div className="register-link">
-                    <span className="register" > Crear una cuenta</span>
+                  <Link to="/register" className='register'>
+                    Crear una cuenta
+                  </Link>
                 </div>
             </form>
         </div>
