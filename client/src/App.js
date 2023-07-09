@@ -1,5 +1,6 @@
-import React from 'react';
 import './App.css';
+import Header from './Components/header';
+import Products from './Components/products';
 // import ProductElement from './Components/productElement';
 import Register from './Components/register';
 import Login from './Components/login';
@@ -9,7 +10,23 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<home/>} />
+
+      {/* borrar para merge */}
+
+      <Route path='/' element={  
+        <>
+          <Header />         
+
+          <div className='main-container'>
+            <Products />
+          </div>
+        </> 
+
+      } />
+
+      {/* borrar para merge */}
+
+        {/* <Route path='/' element={<home/>} /> */}
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/viewAdmin'/>
