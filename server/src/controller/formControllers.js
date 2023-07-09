@@ -74,3 +74,19 @@ export const update = (req, res, ) => {
     }
   })
 }
+
+export const deletee = (req, res) => {
+  const id = req.params.id;
+  
+  const query = 'DELETE FROM products WHERE id = ?';
+  const values = [id]
+
+  db.query(query,values, (err, results) => {
+    if (err) {
+      console.error('Error al eliminar el registro', err);
+      res.status(500).json({error: 'Error al eliminar el registro'});
+    } else {
+      res.json({message: 'Registro eliminado exitosamente'})
+    }
+  })
+}
