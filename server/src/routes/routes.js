@@ -2,7 +2,7 @@ import bodyParser from "body-parser"
 import { Router } from "express"
 import cors from 'cors'
 
-import {login, sigin} from "../controller/formControllers.js"
+import {login, sigin, update} from "../controller/formControllers.js"
 
 const router = Router()
 
@@ -18,5 +18,7 @@ router.get("/", (req, res) => {
 router.post('/register',sigin)
 
 router.post('/login', login);
+
+
 
 export default router
