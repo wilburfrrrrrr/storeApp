@@ -11,6 +11,8 @@ function App() {
       <Routes>
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/viewAdmin'/>
+        <Route path='/viewUser'/>
       </Routes>
     </Router>
   );
