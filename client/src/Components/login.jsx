@@ -1,7 +1,7 @@
 import '../Styles/login.css';
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import logo from '../Images/appImages/Logo.jpeg';
-import axios from 'axios'
+import axios from 'axios';
 
 const CompShowLogin = () => { // Se define el componente.
 
