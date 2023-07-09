@@ -1,12 +1,13 @@
 import React from "react";
-import '../Styles/Login.css';
+import '../Styles/login.css';
+import logo from '../Images/appImages/logo.jpeg';
 
-const CompShowLogin = () => { // Se define el componente.
+const Login = () => { // Se define el componente.
 
     return ( // Estructura HTML del componente.
     <div className="container-login">
         <div className="container-logo-login">
-            <img className="logo-login" alt='Imagen Logo' src={require("../Images/Logo.jpeg")} />
+            <img className="logo-login" alt='Imagen Logo' src={logo} />
         </div>
 
         <form method="post">
@@ -15,7 +16,7 @@ const CompShowLogin = () => { // Se define el componente.
             </div>
             <div className="container-input">
                 <div className="user">
-                    <input  type="text" placeholder="Ingrese su usuario..." required />
+                    <input className="input-login" type="text" placeholder="Ingrese su usuario..." required />
                 </div>
                 
                 <div className="password">
@@ -33,4 +34,4 @@ const CompShowLogin = () => { // Se define el componente.
     </div>
     )
 }
-export default CompShowLogin; // Se exporta el componente
+export default Login; // Se exporta el componente
