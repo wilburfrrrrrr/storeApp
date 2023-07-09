@@ -50,11 +50,20 @@
     },
     {
       "id": 7,
-      "name": "Armable Lego Speed Champions Toyota Gr Supra",
+      "name": "LEGO Technic Lamborghini Sián",
       "description": "DESCRIPCIÓN PENDIENTE",
-      "amount": 25,
-      "price": 159.900,
+      "amount": 30,
+      "price": "3,225.777" ,
+      "minStock": 5
+    },
+    {
+      "id": 8,
+      "name": "LEGO 10227 Star Wars UCS B-wing luchador",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 38,
+      "price": "6,093.777",
       "minStock": 5
     }
+
   ]
 }
