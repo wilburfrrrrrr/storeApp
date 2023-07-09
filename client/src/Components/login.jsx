@@ -2,7 +2,8 @@ import React from "react";
 import '../Styles/login.css';
 import logo from '../Images/appImages/logo.jpeg';
 import { useState } from 'react';
-import {handleChange, handleSubmit} from '../Functions/loginFunctions';
+import axios from 'axios';
+
 
 const CompShowLogin = () => { // Se define el componente.
 
