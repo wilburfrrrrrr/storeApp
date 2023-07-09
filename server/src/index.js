@@ -23,24 +23,39 @@ app.get("/", (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-  const requesData = req.body
+  const requestData = req.body;
   const query = 'SELECT * FROM users WHERE name = ? AND password = ?';
-  const values = [requesData.name, requesData.password]
-  console.log(requesData);
+  const query2 = 'SELECT * FROM administrators WHERE name = ? AND password = ?';
+  const values = [requestData.name, requestData.password];
+  console.log(requestData);
 
   db.query(query, values, (err, results) => {
     if (err) {
       console.error('Error al ejecutar la consulta', err);
-      res.status(500).json({error: 'Error al verificar las credenciales'})
+      res.status(500).json({ error: 'Error al verificar las credenciales' });
     } else {
       if (results.length > 0) {
-        res.json({message: 'Credenciales validas'});
+        res.json({ message: 'Credenciales válidas', validation: true, rol:'user' });
       } else {
-        res.status(401).json({error: 'Credenciales Invalidas'})
+        // Si no se encuentran resultados en la primera consulta, hacer otra consulta en otra tabla
+    
+        db.query(query2, values, (err2, results2) => {
+          if (err2) {
+            console.error('Error al ejecutar la segunda consulta', err2);
+            res.status(500).json({ error: 'Error al verificar las credenciales' });
+          } else {
+            if (results2.length > 0) {
+              res.json({ message: 'Credenciales válidas para administrador', validation: true, rol:'admin' });
+            } else {
+              res.status(401).json({ error: 'Credenciales inválidas' });
+            }
+          }
+        });
       }
     }
-  })
-})
+  });
+});
+
 
 app.post('/register', (req, res) => {
   const requesData = req.body
@@ -54,7 +69,7 @@ app.post('/register', (req, res) => {
       res.status(500).json({ error: 'Error al insertar el registro en la base de datos' });
     } else {
       console.log('Registro insertado exitosamente');
-      res.json({ message: 'Registro insertado exitosamente' });
+      res.json({ message: 'Registro insertado exitosamente',  validation: true});
     }
   });
 })

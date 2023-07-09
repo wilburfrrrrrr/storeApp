@@ -28,8 +28,11 @@ const Register = () => {
 
     axios.post('http://localhost:9000/register', formData)
     .then((response) => {
+      const data = response.data;
+      const validation = response.validation
       console.log(response.data);
       // Puedes realizar acciones adicionales después de enviar los datos
+      console.log(validation);
     })
     .catch((error) => {
       console.error(error);
