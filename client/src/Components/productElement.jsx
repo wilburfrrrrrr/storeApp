@@ -1,11 +1,11 @@
 import React from 'react';
-
+import '../Styles/productElement.css';
 
 function ProductElement(props) {
     return(
         <div className="ProductContainer">
             <div className="ProductImage">
-                <img src='#' />
+                <img src={require(`../Images/productsImages/product${props.idProduct}/${props.idImage}.jpg`)} />
             </div>
 
             <div className='ProductInfo'>
