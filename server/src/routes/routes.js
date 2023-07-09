@@ -3,7 +3,7 @@ import { Router } from "express"
 import cors from 'cors'
 
 import {login, sigin, update} from "../controller/formControllers.js"
-import {administrator} from "../controller/administrator.js"
+import {administrator} from "../controller/adminControl.js"
 
 const router = Router()
 
