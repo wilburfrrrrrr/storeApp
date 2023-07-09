@@ -34,6 +34,7 @@ create table products (
     minStock int not null 
 );
 
+-- Añadir productos
 insert into products (name, description, amount, price, minStock)
 values ("Armable Lego Dc Batman Batmóvil Caza De The Penguin", "PENDIENTE", 50, 159920, 5),
 ("Lego technic cazador policiaco carro policia", "PENDIENTE", 15, 219900, 5),
@@ -43,7 +44,6 @@ values ("Armable Lego Dc Batman Batmóvil Caza De The Penguin", "PENDIENTE", 50,
 ("LEGO Star Wars Millennium Falcon 75257", "PENDIENTE", 15, 994777, 5);
 
 select * from products;
-
 
 
 /*NO EJECUTAR ESTA PARTE*/
