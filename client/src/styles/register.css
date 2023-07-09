@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  padding: 90px 0 90px 0;
+  background-color: rgb(217, 236, 185);
+}
+
+
+.App-header {
+  background-color: rgb(78, 77, 77);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  height: 300px;
+  width: 35%;
+  
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+input {
+  box-shadow: inset 0px 0px 25px 0px paleturquoise;
+}
+

@@ -1,12 +1,12 @@
 import React from "react";
-import '../stylesheets/ShowLogin.css';
+import '../Styles/Login.css';
 
 const CompShowLogin = () => { // Se define el componente.
 
     return ( // Estructura HTML del componente.
     <div className="container-login">
         <div className="container-logo-login">
-            <img className="logo-login" alt='Imagen Logo' src={require("../images/logo.png")} />
+            <img className="logo-login" alt='Imagen Logo' src={require("../Images/Logo.jpeg")} />
         </div>
 
         <form method="post">
