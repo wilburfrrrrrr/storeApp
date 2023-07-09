@@ -24,6 +24,16 @@ values ("generalAdmin", "encode%987", "none@mail.com", "at the office", 300);
 
 select * from administrators;
 
+create table products (  
+    id int auto_increment primary key,  
+    name varchar(70) not null,     
+    description varchar(70) not null,     
+    amount int not null,     
+    price int not null,     
+    minStock int not null 
+);
+
+
 /*NO EJECUTAR ESTA PARTE*/
 /*Administradores opcionales, se considerará inserción en la tabla posteriormente*/
 insert into administrators (name, password, email, address, phone)
