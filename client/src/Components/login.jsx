@@ -1,5 +1,8 @@
 import React from "react";
 import '../Styles/login.css';
+import logo from '../Images/appImages/logo.jpeg';
+import { useState } from 'react';
+import {handleChange, handleSubmit} from '../Functions/loginFunctions';
 
 const CompShowLogin = () => { // Se define el componente.
 
@@ -44,7 +47,7 @@ const CompShowLogin = () => { // Se define el componente.
     return ( // Estructura HTML del componente.
     <div className="container-login">
         <div className="container-logo-login">
-            <img className="logo-login" alt='Imagen Logo' src={require("../Images/appImages/Logo.jpeg")} />
+            <img className="logo-login" alt='Imagen Logo' src={logo} />
         </div>
 
         <form method="post">
@@ -56,6 +59,7 @@ const CompShowLogin = () => { // Se define el componente.
                     <input  type="text" placeholder="Ingrese su usuario..." required />
                 </div>
                 
+
                 <div className="password">
                     <input  className="input-login" type="password" placeholder="Ingrese su contraseña..." required />
                 </div>
