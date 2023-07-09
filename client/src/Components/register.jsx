@@ -4,9 +4,9 @@ import axios from 'axios'
 
 const Register = () => {
   const [datos, setDatos] = useState({
-    nombre: '',
+    name: '',
     email: '',
-    mensaje: ''
+    password: ''
   });
 
   const handleChange = (e) => {
@@ -21,9 +21,9 @@ const Register = () => {
     // Aquí puedes realizar acciones adicionales, como enviar los datos al servidor
 
     const formData = {
-      nombre: datos.nombre,
+      name: datos.name,
       email: datos.email,
-      mensaje: datos.mensaje
+      password: datos.password
     };
 
     axios.post('http://localhost:9000/register', formData)
@@ -38,21 +38,21 @@ const Register = () => {
     console.log(datos);
     // También puedes reiniciar los campos del formulario si es necesario
     setDatos({
-      nombre: '',
+      name: '',
       email: '',
-      mensaje: ''
+      password: ''
     });
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="nombre">Nombre:</label>
+        <label htmlFor="name">Nombre:</label>
         <input
           type="text"
-          id="nombre"
-          name="nombre"
-          value={datos.nombre}
+          id="name"
+          name="name"
+          value={datos.name}
           onChange={handleChange}
           required
         />
@@ -69,14 +69,15 @@ const Register = () => {
         />
       </div>
       <div>
-        <label htmlFor="mensaje">Mensaje:</label>
-        <textarea
-          id="mensaje"
-          name="mensaje"
-          value={datos.mensaje}
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={datos.password}
           onChange={handleChange}
           required
-        ></textarea>
+        />
       </div>
       <button type="submit">Enviar</button>
     </form>

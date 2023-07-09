@@ -3,6 +3,7 @@ import mysql from "mysql";
 import path from "path";
 import bodyParser from "body-parser";
 import cors from 'cors'
+import { error } from "console";
 
 const app = express();
 const PORT = 9000;
@@ -13,7 +14,7 @@ app.use(cors())
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "contra#1234",
+  password: "contraseña12345",
   database: "theStore",
 });
 
@@ -23,9 +24,21 @@ app.get("/", (req, res) => {
 
 app.post('/register', (req, res) => {
   const requesData = req.body
+  const query = 'INSERT INTO users (name, email, password) VALUES (?,?,?)';
+  const values = [requesData.name, requesData.email, requesData.password];
   console.log(requesData);
-  res.json({message: 'Peticion POST recibida para Andres'})
+  
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Error al insertar el registro:', err);
+      res.status(500).json({ error: 'Error al insertar el registro en la base de datos' });
+    } else {
+      console.log('Registro insertado exitosamente');
+      res.json({ message: 'Registro insertado exitosamente' });
+    }
+  });
 })
+
 
 
 app.listen(PORT, () => {
