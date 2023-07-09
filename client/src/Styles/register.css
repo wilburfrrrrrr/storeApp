@@ -1,31 +1,73 @@
-.App {
-  text-align: center;
-  justify-content: center;
+.container-register {
+  height: 500px;
+  width: 400px;
+  margin: auto;
+  background-color: rgb(233, 233, 217);
+  border: 4px solid red;
   display: flex;
-  padding: 90px 0 90px 0;
-  background-color: rgb(217, 236, 185);
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  border-radius: 2%;
 }
 
-
-.App-header {
-  background-color: rgb(78, 77, 77);
-  min-height: 100vh;
+.container-logo-login {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  height: 300px;
-  width: 35%;
-  
 }
 
-.App-link {
-  color: #61dafb;
+.titulo-register{
+  display: flex;
+  justify-content: center;
+  color: rgb(0, 0, 0);
+  margin-bottom: 20px;
 }
 
-input {
-  box-shadow: inset 0px 0px 25px 0px paleturquoise;
+.btn-submit:hover {
+  background-color: #ffffff;
 }
 
+.register-link {
+  display: flex;
+  justify-content: center;
+}
+
+.register {
+  width: fit-content;  
+  text-align: center;
+  color: black;
+  cursor: pointer;
+  font-style: italic;
+}
+
+ .container-inp label {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+ justify-content: center;
+ align-items: center;
+
+ }
+
+ .btm-submit {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  margin: 30px auto 10px auto;
+  height: 40px;
+  width: 150px;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 7px;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(241, 33, 33);
+  cursor: pointer;
+}
+
+.formulario {
+  justify-content: center;
+  align-items: center;
+}
+.boton{
+  margin: auto;
+
+}
