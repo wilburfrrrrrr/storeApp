@@ -55,6 +55,47 @@
       "amount": 25,
       "price": 159.900,
       "minStock": 5
+    },
+    {
+      "id": 8,
+      "name": "LEGO 10227 Star Wars UCS B-wing luchador",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 25,
+      "price": "6'093.777",
+      "minStock": 5
+    },
+    {
+      "id": 9,
+      "name": "LEGO Creator Oficina del Detective de Expertos",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 25,
+      "price": "5'015.777",
+      "minStock": 5
+    },
+    {
+      "id": 10,
+      "name": "Nifeliz DIVN Race Car MOC Building Kit ",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 25,
+      "price": "1'097.777",
+      "minStock": 5
+    },
+
+    {
+      "id": 11,
+      "name": "Bourvill Kit de luces LED para casco Lego Boba Fett 75277",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 25,
+      "price": 264.777,
+      "minStock": 5
+    },
+    {
+      "id": 12,
+      "name": "LEGO Star Wars Captain Rex – Juego de casco 75349 The Clone Wars coleccionable",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 25,
+      "price": 499.777,
+      "minStock": 5
     }
   ]
 }
