@@ -22,6 +22,26 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve("../index.html"));
 });
 
+app.post('/login', (req, res) => {
+  const requesData = req.body
+  const query = 'SELECT * FROM users WHERE name = ? AND password = ?';
+  const values = [requesData.name, requesData.password]
+  console.log(requesData);
+
+  db.query(query, values, (err, results) => {
+    if (err) {
+      console.error('Error al ejecutar la consulta', err);
+      res.status(500).json({error: 'Error al verificar las credenciales'})
+    } else {
+      if (results.length > 0) {
+        res.json({message: 'Credenciales validas'});
+      } else {
+        res.status(401).json({error: 'Credenciales Invalidas'})
+      }
+    }
+  })
+})
+
 app.post('/register', (req, res) => {
   const requesData = req.body
   const query = 'INSERT INTO users (name, email, password) VALUES (?,?,?)';
