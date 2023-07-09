@@ -1,22 +1,27 @@
 import express from "express";
 import mysql from "mysql";
-import path from "path";
+import path, { dirname } from "path";
 import bodyParser from "body-parser";
 import cors from 'cors'
 import { error } from "console";
+
+import indexRoutes from "./routes/index.js"
 
 const app = express();
 const PORT = 9000;
 
 app.use(bodyParser.json())
 app.use(cors())
+app.use(indexRoutes)
 
+/*
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "contraseña12345",
   database: "theStore",
 });
+
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve("../index.html"));
@@ -73,7 +78,7 @@ app.post('/register', (req, res) => {
     }
   });
 })
-
+*/
 
 
 app.listen(PORT, () => {
