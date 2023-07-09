@@ -1,7 +1,12 @@
 import React from 'react';
 import '../Styles/productView.css';
+import { useParams } from 'react-router-dom';
 
 function ProductView(props) {
+    const {idProduct} = useParams();
+
+    
+
     return(
         <div className='mainContainer'>
             <div className='productContainer'>

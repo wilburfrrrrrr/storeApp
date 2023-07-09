@@ -1,5 +1,8 @@
 import React from 'react';
 import '../Styles/productElement.css';
+import {Link} from 'react-router-dom';
+
+
 
 function ProductElement(props) {
     return(
@@ -17,7 +20,10 @@ function ProductElement(props) {
                 </div>
             </div>
 
-            <button className='ProductButton'>More Info</button>
+            <Link to={`/product/${props.idProduct}`} className='ProductLink'>
+                <button className='ProductButton'>More Info</button>
+            </Link>
+            
             
         </div>
     );
