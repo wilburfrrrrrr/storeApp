@@ -12,18 +12,21 @@
   }
   
   .ProductImage img {
-    max-width: 100px;
+    max-width: 170px;
     height: auto;
   }
   
   .ProductTitle h2 {
     font-size: 18px;
+    padding-bottom: 5px;
     margin: 0;
   }
   
   .ProductPrice h3 {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
+    padding-bottom: 20px;
+    color: rgb(128, 128, 128);
   }
   
   .ProductButton {
