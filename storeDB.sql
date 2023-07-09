@@ -1,3 +1,4 @@
+show databases;
 CREATE DATABASE theStore;
 USE theStore;
 
@@ -32,6 +33,17 @@ create table products (
     price int not null,     
     minStock int not null 
 );
+
+-- Añadir productos
+insert into products (name, description, amount, price, minStock)
+values ("Armable Lego Dc Batman Batmóvil Caza De The Penguin", "PENDIENTE", 50, 159920, 5),
+("Lego technic cazador policiaco carro policia", "PENDIENTE", 15, 219900, 5),
+("Set De Lego Disney Buzz Lightyear Nave Espacial Xl-15 76832", "PENDIENTE", 15, 399900, 5),
+("DRAGÓN DEL FUEGO EVO DE KAI", "PENDIENTE", 20, 249900, 5),
+("Armable Lego Speed Champions Toyota Gr Supra", "PENDIENTE", 25, 159900, 5),
+("LEGO Star Wars Millennium Falcon 75257", "PENDIENTE", 15, 994777, 5);
+
+select * from products;
 
 
 /*NO EJECUTAR ESTA PARTE*/

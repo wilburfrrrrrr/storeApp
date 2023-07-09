@@ -5,7 +5,7 @@ function ProductElement(props) {
     return(
         <div className="ProductContainer">
             <div className="ProductImage">
-                <img src={require(`../Images/productsImages/product${props.idProduct}/${props.idImage}.jpg`)} />
+                <img src={require(`../Images/productsImages/product${props.idProduct}/${props.idImage}.jpg`)} alt='imagen' />
             </div>
 
             <div className='ProductInfo'>

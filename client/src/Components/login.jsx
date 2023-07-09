@@ -1,36 +1,76 @@
-import React from "react";
-import '../Styles/Login.css';
+import '../Styles/login.css';
+import React, {useState} from 'react'
+import logo from '../Images/appImages/Logo.jpeg';
+import axios from 'axios'
 
 const CompShowLogin = () => { // Se define el componente.
 
-    return ( // Estructura HTML del componente.
-    <div className="container-login">
-        <div className="container-logo-login">
-            <img className="logo-login" alt='Imagen Logo' src={require("../Images/Logo.jpeg")} />
+    const [datos, setDatos] = useState({
+        name: '',
+        password: ''
+      });
+    
+      const handleChange = (e) => {
+        setDatos({
+          ...datos,
+          [e.target.name]: e.target.value
+        });
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // Aquí puedes realizar acciones adicionales, como enviar los datos al servidor
+    
+        const formData = {
+          name: datos.name,
+          password: datos.password
+        };
+    
+        axios.post('http://localhost:9000/login', formData)
+        .then((response) => {
+          console.log(response.data);
+          // Puedes realizar acciones adicionales después de enviar los datos
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    
+        console.log(datos);
+        // También puedes reiniciar los campos del formulario si es necesario
+        setDatos({
+          name: '',
+          password: ''
+        });
+      }
+    
+    return ( // Estructura HTML deimport React from "react";
+            <div className="container-login">
+            <div className="container-logo-login">
+                <img className="logo-login" alt='Imagen Logo' src={logo} />
+            </div>
+
+            <form onSubmit={handleSubmit}>
+                <div className="titulo-login">
+                    <h1>Login</h1>
+                </div>
+                <div className="container-input">
+                    <div className="user">
+                        <input className="input-login" name='name' type="text" placeholder="Ingrese su usuario..." value={datos.name} onChange={handleChange} required />
+                    </div>
+                    
+                    <div className="password">
+                        <input  className="input-login" name='password' type="password" placeholder="Ingrese su contraseña..." value={datos.password} onChange={handleChange} required />
+                    </div>
+                </div>
+
+                <div className="container-submit">
+                    <input type="submit" className="btn-submit" value="Entrar" />
+                </div>
+                <div className="register-link">
+                    <span className="register" > Crear una cuenta</span>
+                </div>
+            </form>
         </div>
-
-        <form method="post">
-            <div className="titulo-login">
-                <h1>Login</h1>
-            </div>
-            <div className="container-input">
-                <div className="user">
-                    <input  type="text" placeholder="Ingrese su usuario..." required />
-                </div>
-                
-                <div className="password">
-                    <input  className="input-login" type="password" placeholder="Ingrese su contraseña..." required />
-                </div>
-            </div>
-
-            <div className="container-submit">
-                <input type="submit" className="btn-submit" value="Entrar" />
-            </div>
-            <div className="register-link">
-                <span className="register" > Crear una cuenta</span>
-            </div>
-        </form>
-    </div>
-    )
-}
+    ); 
+};
 export default CompShowLogin; // Se exporta el componente
