@@ -84,7 +84,7 @@ const Register = () => {
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Contraseña:</label>
         <input
           type="password"
           id="password"
