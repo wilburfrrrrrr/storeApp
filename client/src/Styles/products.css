@@ -1,0 +1,12 @@
+.item {
+    height: 400px;
+    width: 300px;
+    padding: 5px;
+    margin: 15px;
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 20px #d6d6d6;
+}

@@ -4,7 +4,8 @@ import  Data from '../data.json';
 function Stock() {
   console.log(Data); // Verificar el valor de Data en la consola
 
-  const [data, setData] = useState(Data);
+  //se borro setData
+  const [data] = useState(Data);
   return (
     <table>
       <thead>
