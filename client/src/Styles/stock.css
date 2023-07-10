@@ -1,0 +1,47 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 40px auto 50px auto;
+    color: #000000;
+    font-family: monospace;
+    font-size: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #FFD500;
+    color: #000000;
+    padding: 10px;
+    text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+input {
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
+
+input:active {
+    border: 0.2px solid #000;
+}
+
+button {
+    width: auto;
+    height: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover {
+    border: 0.2px solid #000;
+}

@@ -5,7 +5,6 @@ import cors from 'cors'
 import {login, sigin, update} from "../controller/formControllers.js"
 import {administrator} from "../controller/adminControl.js"
 
-
 const router = Router()
 
 router.use(bodyParser.urlencoded({extended: false}))
@@ -21,7 +20,7 @@ router.post('/register',sigin)
 
 router.post('/login', login);
 
-router.put('/update', update);
+// router.put('/update', update);
 
 router.get('/administrator', administrator);
 
