@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 40px auto 0 auto;
+    color: #000000;
+    font-family: monospace;
+    font-size: 15px;
+    text-align: center;
+}
+
+th {
+    background-color: #137c60;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+input {
+    width: auto;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+}
+
