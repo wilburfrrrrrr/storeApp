@@ -33,6 +33,8 @@ const CompShowLogin = () => { // Se define el componente.
         axios.post('http://localhost:9000/login', formData)
         .then((response) => {
           console.log(response.data);
+          localStorage.setItem('accessToken', response.data.accessToken);
+          console.log(response.data.accessToken);
           // Puedes realizar acciones adicionales después de enviar los datos
           if (response.data.validation){
             if (response.data.rol === 'user'){

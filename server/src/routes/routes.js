@@ -2,7 +2,7 @@ import bodyParser from "body-parser"
 import { Router } from "express"
 import cors from 'cors'
 
-import {login, sigin, update, verifyToken} from "../controller/formControllers.js"
+import {login, sigin, update} from "../controller/formControllers.js"
 import {administrator} from "../controller/adminControl.js"
 
 

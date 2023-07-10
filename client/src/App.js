@@ -1,5 +1,7 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Navigate } from 'react-router-dom'; 
 
 //COMPONENTS IMPORT
 import Header from './Components/header';
@@ -12,7 +14,19 @@ import Stock from './Components/stock';
 import Administrator from './Components/administrator';
 import Products2 from './Components/products2';
 
+
+
 function App() {
+  
+  const [accessToken, setAccessToken] = useState('');
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem('accessToken');
+    if (storedToken) {
+      setAccessToken(storedToken);
+    }
+  }, []);
+
   return (
     <Router>
       <Routes>
@@ -23,14 +37,22 @@ function App() {
               <Products />
             </div>
           </> } />
-        <Route path='/Home/:id' element={  
-        <>
-          <Header />
-          <div className='main-container'>
-            <Products2 />
-            <h1>Ya estas registrado</h1>
-          </div>
-        </> } />
+          <Route
+          path="/Home/:id"
+          element={
+            accessToken ? (
+              <>
+                <Header />
+                <div className="main-container">
+                  <Products2 />
+                  <h1>Ya estás registrado</h1>
+                </div>
+              </>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/cart' element={<Cart />} />
