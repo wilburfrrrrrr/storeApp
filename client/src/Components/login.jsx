@@ -1,6 +1,6 @@
 import '../Styles/login.css';
 import React, {useState} from 'react';
-import logo from '../Images/appImages/Logo.jpeg';
+import logo from '../Images/appImages/logo.jpeg';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
