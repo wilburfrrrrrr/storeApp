@@ -5,14 +5,15 @@ import Data from '../products.json';
 
 import '../Styles/products.css';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 
-const Products = () => {
-
+const Products2 = () => {
+    const {id} = useParams();
     const [data, setData] = useState(Data);
-    
-    return ( // Estructura HTML del componente.
+    console.log(id);
 
+    return ( // Estructura HTML del componente.
     data.products.map ( product => (
         <div className='item'>
         <ProductElement 
@@ -20,6 +21,7 @@ const Products = () => {
             productPrice= {product.price}
             idProduct= {product.id}
             idImage= "1"
+            idUser = {id}
         />
         </div>
    )) 
@@ -28,4 +30,4 @@ const Products = () => {
 
 
 
-export default Products; // Se exporta el componente    
+export default Products2; // Se exporta el componente    

@@ -20,9 +20,11 @@ router.post('/register',sigin)
 
 router.post('/login', login);
 
-router.put('/update', update);
+// router.put('/update', update);
 
 router.get('/administrator', administrator);
+
+
 
 
 
