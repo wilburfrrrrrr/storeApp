@@ -1,7 +1,7 @@
 table {
     border-collapse: collapse;
     width: 90%;
-    margin: 40px auto 0 auto;
+    margin: 40px auto 50px auto;
     color: #000000;
     font-family: monospace;
     font-size: 15px;
@@ -9,8 +9,10 @@ table {
 }
 
 th {
-    background-color: #137c60;
-    color: white;
+    background-color: #FFD500;
+    color: #000000;
+    padding: 10px;
+    text-transform: uppercase;
 }
 
 tr:nth-child(even) {
@@ -26,3 +28,20 @@ input {
     text-align: center;
 }
 
+input:active {
+    border: 0.2px solid #000;
+}
+
+button {
+    width: auto;
+    height: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover {
+    border: 0.2px solid #000;
+}
