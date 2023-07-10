@@ -1,0 +1,69 @@
+{
+  "products":[
+    {
+      "id": 1,
+      "name": "Lego technic cazador policiaco carro policia",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 50,
+      "price": 159.920,
+      "minStock": 5
+    },
+    {
+      "id": 2,
+      "name": "Armable Lego Dc Batman Batmóvil Caza De The Penguin",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 15,
+      "price": 219.900,
+      "minStock": 5
+    },
+    {
+      "id": 3,
+      "name": "Set De Lego Disney Buzz Lightyear Nave Espacial Xl-15 76832",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 15,
+      "price": 399.900,
+      "minStock": 5
+    },
+    {
+      "id": 4,
+      "name": "DRAGÓN DEL FUEGO EVO DE KAI",
+      "description": "Pon en las manos de tu peque de 6 años o más todo lo que necesita para vivir trepidantes aventuras ninja con el juego construible Dragón del Fuego EVO de Kai (71762). El dragón de juguete posee mandíbula, cabeza, cola y patas articuladas y puede transformarse en una criatura más grande, fuerte y rápida.",
+      "amount": 20,
+      "price": 249.900,
+      "minStock": 5
+    },
+    {
+      "id": 5,
+      "name": "Armable Lego Speed Champions Toyota Gr Supra",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 25,
+      "price": 159.900,
+      "minStock": 5
+    },
+    {
+      "id": 6,
+      "name": "LEGO Star Wars Millennium Falcon 75257",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 15,
+      "price": 994.777,
+      "minStock": 5
+    },
+    {
+      "id": 7,
+      "name": "LEGO Technic Lamborghini Sián",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 30,
+      "price": "3,225.777" ,
+      "minStock": 5
+    },
+    {
+      "id": 8,
+      "name": "LEGO 10227 Star Wars UCS B-wing luchador",
+      "description": "DESCRIPCIÓN PENDIENTE",
+      "amount": 38,
+      "price": "6,093.777",
+      "minStock": 5
+    }
+
+  ]
+}

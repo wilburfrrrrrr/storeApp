@@ -1,5 +1,5 @@
 import '../Styles/products.css';
-import ProductElement from '../Components/productElement'
+import ProductElement from './productElement'
 
 import Data from '../data.json';
 
