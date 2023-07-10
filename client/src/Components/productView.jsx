@@ -3,7 +3,7 @@ import '../Styles/productView.css';
 import { useParams } from 'react-router-dom';
 import  Data from '../data.json';
 import { useState } from 'react';
-
+import Header from './header';
 
 function ProductView(props) {
 
@@ -29,6 +29,7 @@ function ProductView(props) {
     });
         
     return(
+
         <div className='mainContainer'>
             <div className='productContainer'>
                 <div className='productImage'>

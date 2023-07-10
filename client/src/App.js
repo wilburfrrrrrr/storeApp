@@ -20,7 +20,9 @@ function App() {
       <Routes>
         <Route path='/' element={  
           <>
-            <Header />
+            <Header 
+            idUser="1"
+            />
             <div className='main-container'>
               <Products />
             </div>

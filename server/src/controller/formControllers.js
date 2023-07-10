@@ -3,7 +3,7 @@ import mysql from "mysql"
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "contraseña12345",
+    password: "123456789",
     database: "theStore",
   });
 
@@ -55,7 +55,7 @@ export const sigin = (req, res) => {
         console.log('Registro insertado exitosamente');
         res.json({ message: 'Registro insertado exitosamente',  validation: true});
         }
-    });re
+    });
 }
 
 export const update = (req, res, ) => {
