@@ -1,4 +1,8 @@
 import mysql from "mysql"
+import { alertMail } from "./mails.js"
+
+const products = [];
+ 
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -58,3 +62,44 @@ export const sigin = (req, res) => {
     });
 }
 
+export const car = (nameProduct, req, res) => {
+  const query = 'SELECT * FROM products WHERE name = ?';
+  let productObj = {};
+  db.query(query, nameProduct)
+  .then(result => {
+    if (result.length > 0){
+        productObj = {
+          id: result[0].id,
+          name: result[0].name,
+          amount: result[0].amount,
+          price: result[0].price,
+          minStock: result[0].minStock
+        }
+      }
+      products.push(productObj);
+  }).catch(
+    console.error()
+  )
+}
+
+const checkInventory = (stock, req, res) => {
+  const minStock = 5, maxStock = 30;
+  // const testStuck = 16;
+  const stock = product.minStuck;
+
+  if (stock >= maxStock || stock <= minStock){
+    alertMail();
+  }
+  
+}
+
+export const calculatePrice = (products, req, res) => {
+  let prices = 0;
+  
+  for(let countPos = 0; countPos < products.length; countPos++){
+    prices += products[countPos].price;
+    checkInventory(products[countPos].minStock);
+  }
+  return prices;
+  
+}
