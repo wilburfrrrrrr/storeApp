@@ -1,34 +1,29 @@
-import React, { useState } from 'react';
-import  Data from '../data.json';
+import '../Styles/stock.css'
 
-function Stock() {
-  console.log(Data); // Verificar el valor de Data en la consola
-
-  //se borro setData
-  const [data] = useState(Data);
+function Stock(productsArray) {
+  let products = productsArray.productsArray;
   return (
     <table>
       <thead>
-        <th>Id</th>
-        <th>NombreProducto</th>
-        <th>Cantidad</th>
-        <th>precio</th>
-        <th>minStock</th>
+        <tr>
+          <th>Id</th>
+          <th>NombreProducto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>MínimoStock</th>
+          <th>Accion</th>
+        </tr>
       </thead>
       <tbody>
-      {
-      data.products.map((current) => (
-      <tr>
-        <td>{current.name}</td>
-        <td>{current.description}</td>
-        <td>{current.amount}</td>
-        <td>{current.price}</td>
-        <td>{current.minStock}</td>
-         <td>
-        <button>Edit</button>
-        <button>Delete</button>
-        </td>
-      </tr>
+      {products.map((product) => (
+        <tr key={product.id}>
+          <td><input type="text" disabled value={product.id}/></td>
+          <td><input type="text" disabled value={product.name}/></td>
+          <td><input type="number" min={0} value={product.price} /></td>
+          <td><input type="number" min={0} value={product.amount} /></td>
+          <td><input type="number" min={0} value={product.minStock} /></td>
+          <td><button>Editar</button></td>
+        </tr>
       ))}
     </tbody>
   </table>
