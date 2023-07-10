@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Cart from './Components/cart';
 import Stock from './Components/stock';
 import Administrator from './Components/administrator';
+import Home from './Components/products2';
 
 function App() {
   return (
@@ -24,6 +25,14 @@ function App() {
               <Products />
             </div>
           </> } />
+        <Route path='/home' element={  
+        <>
+          <Header />
+          <div className='main-container'>
+            <Home />
+            <h1>Ya estas registrado</h1>
+          </div>
+        </> } />
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/viewAdmin'/>
@@ -34,6 +43,7 @@ function App() {
         <Route path='/viewProduct' element={<ProductView />} />
         <Route path='/product/:id' element={<ProductView />}/>
 
+        <Route path='/admin' element={<Administrator />}/>
       </Routes>
     </Router>
   );

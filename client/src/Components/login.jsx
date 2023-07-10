@@ -1,7 +1,7 @@
 import '../Styles/login.css';
 import React, {useState} from 'react';
 import logo from '../Images/appImages/logo.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -11,14 +11,16 @@ const CompShowLogin = () => { // Se define el componente.
         name: '',
         password: ''
       });
-    
+      
+      const navigate = useNavigate();
+
       const handleChange = (e) => {
         setDatos({
           ...datos,
           [e.target.name]: e.target.value
         });
       };
-    
+
       const handleSubmit = (e) => {
         e.preventDefault();
         // Aquí puedes realizar acciones adicionales, como enviar los datos al servidor
@@ -32,6 +34,16 @@ const CompShowLogin = () => { // Se define el componente.
         .then((response) => {
           console.log(response.data);
           // Puedes realizar acciones adicionales después de enviar los datos
+          if (response.data.validation){
+            if (response.data.rol === 'user'){
+              navigate('/Home');
+            } else if (response.data.rol === 'admin'){
+              navigate('/viewAdmin')
+            }
+          }else{
+            navigate('/login')
+          }
+        
         })
         .catch((error) => {
           console.error(error);
