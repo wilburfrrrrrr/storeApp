@@ -2,17 +2,37 @@ import React from 'react';
 import '../Styles/productView.css';
 import { useParams } from 'react-router-dom';
 import  Data from '../data.json';
+import { useState } from 'react';
+
 
 function ProductView(props) {
+
     const {idProduct} = useParams();
+    console.log(idProduct);
 
-    
+    const [data,setData] = useState(Data);
 
+    const product = {};
+
+   
+    data.products.map((current) => {
+        if (current.id == idProduct){
+            product = {
+                "id": current.id,
+                "name": current.name,
+                "price": current.price,
+                "description": current.description,
+                "amount": current.amount
+            };
+            console.log(product);
+        }
+    });
+        
     return(
         <div className='mainContainer'>
             <div className='productContainer'>
                 <div className='productImage'>
-                    <img src={require('../Images/productsImages/product1/2.jpg')} alt='productImage' />
+                    <img src={require(`../Images/productsImages/product1/1.jpg`)} alt='productImage' />
                 </div>
 
                 <div className='productInfo'>
