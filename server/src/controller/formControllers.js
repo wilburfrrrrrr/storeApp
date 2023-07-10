@@ -1,4 +1,7 @@
-import mysql from "mysql"
+import mysql from "mysql";
+import jwt from 'jsonwebtoken';
+
+const secretKey = 'mi-secreto'; // Reemplaza por una clave secreta segura
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -6,6 +9,24 @@ const db = mysql.createConnection({
     password: "contraseña12345",
     database: "theStore",
   });
+
+export const verifyToken = (req, res, next) => {
+  const token = req.headers.authorization; // Obtén el token del encabezado de la solicitud
+
+  if (!token) {
+    return res.status(401).json({ error: 'No se proporcionó un token' });
+  }
+
+  jwt.verify(token, secretKey, (err, decoded) => {
+    if (err) {
+      console.error('Error al verificar el token:', err);
+      return res.status(401).json({ error: 'Token inválido' });
+    }
+
+    req.user = decoded; // Agrega los datos del usuario decodificados al objeto de solicitud
+    next(); // Continúa con la siguiente función de middleware
+  });
+};
 
 export const login = (req, res) => {
     const requestData = req.body;
@@ -20,6 +41,14 @@ export const login = (req, res) => {
         res.status(500).json({ error: 'Error al verificar las credenciales' });
       } else {
         if (results.length > 0) {
+          const payload = {
+            userId: results[0].id,
+            username: results[0].name,
+            rol: 'user'
+          };
+          const token = jwt.sign(payload, secretKey);
+
+
           res.json({ message: 'Credenciales válidas', validation: true, rol:'user', id: results[0].id  });
         } else {
           // Si no se encuentran resultados en la primera consulta, hacer otra consulta en otra tabla
@@ -30,6 +59,13 @@ export const login = (req, res) => {
               res.status(500).json({ error: 'Error al verificar las credenciales' });
             } else {
               if (results2.length > 0) {
+
+                const payload = {
+                  userId: results2[0].id,
+                  username: results2[0].name,
+                  rol: 'admin'
+                };
+                const token = jwt.sign(payload, secretKey);
                 res.json({ message: 'Credenciales válidas para administrador', validation: true, rol:'admin', id: results2[0].id});
               } else {
                 res.status(401).json({ error: 'Credenciales inválidas' });
@@ -55,7 +91,7 @@ export const sigin = (req, res) => {
         console.log('Registro insertado exitosamente');
         res.json({ message: 'Registro insertado exitosamente',  validation: true});
         }
-    });re
+    });
 }
 
 export const update = (req, res, ) => {
@@ -90,3 +126,5 @@ export const deletee = (req, res) => {
     }
   })
 }
+
+

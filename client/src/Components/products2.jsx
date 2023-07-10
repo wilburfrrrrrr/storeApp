@@ -12,7 +12,7 @@ const Products2 = () => {
     const {id} = useParams();
     const [data, setData] = useState(Data);
     console.log(id);
-    
+
     return ( // Estructura HTML del componente.
     data.products.map ( product => (
         <div className='item'>
