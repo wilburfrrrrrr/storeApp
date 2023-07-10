@@ -1,11 +1,10 @@
 import express from "express";
-import mysql from "mysql";
-import path, { dirname } from "path";
+// import path, { dirname } from "path";
 import bodyParser from "body-parser";
 import cors from 'cors'
-import { error } from "console";
+// import { error } from "console";
 
-import indexRoutes from "./routes/index.js"
+import indexRoutes from "./routes/routes.js"
 
 const app = express();
 const PORT = 9000;

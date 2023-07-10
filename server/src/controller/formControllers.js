@@ -24,7 +24,7 @@ export const login = (req, res) => {
         res.status(500).json({ error: 'Error al verificar las credenciales' });
       } else {
         if (results.length > 0) {
-          res.json({ message: 'Credenciales válidas', validation: true, rol:'user' });
+          res.json({ message: 'Credenciales válidas', validation: true, rol:'user', id: results[0].id  });
         } else {
           // Si no se encuentran resultados en la primera consulta, hacer otra consulta en otra tabla
       
@@ -34,7 +34,7 @@ export const login = (req, res) => {
               res.status(500).json({ error: 'Error al verificar las credenciales' });
             } else {
               if (results2.length > 0) {
-                res.json({ message: 'Credenciales válidas para administrador', validation: true, rol:'admin' });
+                res.json({ message: 'Credenciales válidas para administrador', validation: true, rol:'admin', id: results2[0].id});
               } else {
                 res.status(401).json({ error: 'Credenciales inválidas' });
               }
@@ -59,7 +59,7 @@ export const sigin = (req, res) => {
         console.log('Registro insertado exitosamente');
         res.json({ message: 'Registro insertado exitosamente',  validation: true});
         }
-    });
+    });re
 }
 
 export const addCar = (nameProduct, req, res) => {
@@ -102,5 +102,21 @@ export const calculatePrice = (products, req, res) => {
     checkInventory(products[countPos].minStock);
   }
   return prices;
+}
   
+export const update = (req, res, ) => {
+  const id = req.params.id;
+  const requestData = req.body;
+
+  const query = 'UPDATE products SET name = ?, description = ?, amount = ?, price = ?, minStock = ? WHERE id = ?';
+  const values = [requestData.name, requestData.description, requestData.amount, requestData.price, requestData.minStock, id]
+
+  db.query(query, values, (err, result) => {
+    if (err) {
+      console.error('Error al actualizar el registo', err);
+      res.status(500).json({error: 'Error al actualizar el registro'});
+    } else {
+      res.json({message: 'Registro actualizado exitosamente'})
+    }
+  })
 }

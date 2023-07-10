@@ -7,7 +7,9 @@
       "amount": 50,
       "price": 159.920,
       "minStock": 5,
-      "imagen": "./images/productsImages/product1/1.jpg" 
+      "imagen1": "./images/productsImages/product1/1.jpg", 
+      "imagen2": "./images/productsImages/product1/2.jpg",
+      "imagen3": "./images/productsImages/product1/3.jpg"  
     },
     {
       "id": 2,
@@ -16,7 +18,9 @@
       "amount": 15,
       "price": 219.900,
       "minStock": 5,
-      "imagen": "./images/productsImages/product2/producto2.1.jpg" 
+      "imagen1": "./images/productsImages/product2/producto2.1.jpg", 
+      "imagen2": "./images/productsImages/product1/producto2.2.jpg",
+      "imagen3": "./images/productsImages/product1/producto2.3.jpg"  
     },
     {
       "id": 3,
@@ -25,7 +29,7 @@
       "amount": 15,
       "price": 399.900,
       "minStock": 5,
-      "imagen": "./images/productsImages/product3/producto3.1.jpg" 
+      "imagen1": "./images/productsImages/product3/producto3.1.jpg" 
     },
     {
       "id": 4,
@@ -34,7 +38,7 @@
       "amount": 20,
       "price": 249.900,
       "minStock": 5,
-      "imagen": "./images/productsImages/product4/producto4.1.jpg" 
+      "imagen1": "./images/productsImages/product4/producto4.1.jpg" 
     },
     {
       "id": 5,
@@ -43,7 +47,7 @@
       "amount": 25,
       "price": 159.900,
       "minStock": 5,
-      "imagen": "./images/productsImages/product5/producto5.1.jpg" 
+      "imagen1": "./images/productsImages/product5/producto5.1.jpg" 
     },
     {
       "id": 6,
@@ -52,7 +56,7 @@
       "amount": 15,
       "price": 994.777,
       "minStock": 5,
-      "imagen": "./images/productsImages/product6/producto6.1.jpg" 
+      "imagen1": "./images/productsImages/product6/producto6.1.jpg" 
     },
     {
       "id": 7,
@@ -60,48 +64,8 @@
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 25,
       "price": 159.900,
-      "minStock": 5
-    },
-    {
-      "id": 8,
-      "name": "LEGO 10227 Star Wars UCS B-wing luchador",
-      "description": "DESCRIPCIÓN PENDIENTE",
-      "amount": 25,
-      "price": "6'093.777",
-      "minStock": 5
-    },
-    {
-      "id": 9,
-      "name": "LEGO Creator Oficina del Detective de Expertos",
-      "description": "DESCRIPCIÓN PENDIENTE",
-      "amount": 25,
-      "price": "5'015.777",
-      "minStock": 5
-    },
-    {
-      "id": 10,
-      "name": "Nifeliz DIVN Race Car MOC Building Kit ",
-      "description": "DESCRIPCIÓN PENDIENTE",
-      "amount": 25,
-      "price": "1'097.777",
-      "minStock": 5
-    },
-
-    {
-      "id": 11,
-      "name": "Bourvill Kit de luces LED para casco Lego Boba Fett 75277",
-      "description": "DESCRIPCIÓN PENDIENTE",
-      "amount": 25,
-      "price": 264.777,
-      "minStock": 5
-    },
-    {
-      "id": 12,
-      "name": "LEGO Star Wars Captain Rex – Juego de casco 75349 The Clone Wars coleccionable",
-      "description": "DESCRIPCIÓN PENDIENTE",
-      "amount": 25,
-      "price": 499.777,
-      "minStock": 5
+      "minStock": 5,
+      "imagen1": "./images/productsImages/product7/producto7.1.jpg" 
     }
   ]
 }
