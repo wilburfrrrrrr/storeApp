@@ -1,12 +1,12 @@
 import mysql from "mysql"
 import { alertMail } from "./mails.js"
 
-const purchaseList = [];
+const purchaseList = new Array;
  
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
+    host    : "localhost",
+    user    : "root",
     password: "contraseña12345",
     database: "theStore",
   });
@@ -64,42 +64,45 @@ export const sigin = (req, res) => {
 
 export const addCar = (nameProduct, req, res) => {
   const query = 'SELECT * FROM products WHERE name = ?';
+  const queryReserve = 'UPDATE products SET minStock = ? WHERE id = ?';
   let productObj = {};
+
   db.query(query, nameProduct)
   .then(result => {
     if (result.length > 0){
         productObj = {
-          id: result[0].id,
-          name: result[0].name,
-          amount: result[0].amount,
-          price: result[0].price,
-          minStock: result[0].minStock
+          id      : result[0].id,
+          name    : result[0].name,
+          amount  : result[0].amount,
+          price   : result[0].price,
+          minStock: result[0].minStock - 1
         }
+        db.query(queryReserve, [productObj.minStock, productObj.id])
+        .then(() => {console.log('Producto reservado')})
+        .catch(() => {console.error('Error en la reserva del producto, problemas de acceso')})
       }
       purchaseList.push(productObj);
   }).catch( error => {
-      console.error(error)
-    }
+    throw error;
+  }
   )
 }
 
 const checkInventory = (stock, req, res) => {
   const minStock = 5, maxStock = 30;
-  // const testStuck = 16;
-  const stock = product.minStuck;
-
+  // const stock = product.minStock;
   if (stock >= maxStock || stock <= minStock){
     alertMail();
   }
   
 }
 
-export const calculatePrice = (products, req, res) => {
+export const calculatePrice = (req, res) => {
   let prices = 0;
   
-  for(let countPos = 0; countPos < products.length; countPos++){
-    prices += products[countPos].price;
-    checkInventory(products[countPos].minStock);
+  for(let countPos = 0; countPos < purchaseList.length; countPos++){
+    prices += purchaseList[countPos].price;
+    checkInventory(purchaseList[countPos].minStock);
   }
   return prices;
 }
@@ -119,4 +122,25 @@ export const update = (req, res, ) => {
       res.json({message: 'Registro actualizado exitosamente'})
     }
   })
+}
+
+
+export const cancelPurchaseList = (req, res) => {
+  let countPos = 0;
+  const query = 'UPDATE products SET minStock = ? WHERE id = ?';
+  while(countPos < purchaseList.length){
+    db.query(query, [purchaseList[countPos].minStock + 1, purchaseList[countPos].id])
+    .then(console.log('Reserva anulada correctamente'))
+    .catch(console.error('Error al acceder a la reserva'))
+    purchaseList.pop();
+    countPos++;
+  }
+}
+
+export const cleanPurchaseList = (req, res) => {
+  let countPos = 0;
+  while(countPos < purchaseList.length){
+    purchaseList.pop();
+    countPos++;
+  }
 }
