@@ -3,14 +3,14 @@ import '../Styles/productElement.css';
 
 function ProductsHome(props) {
 
-    
+
 
     return(
         <div className="ProductContainer">
+            
             <div className="ProductImage">
                 <img src={require(`../Images/productsImages/product${props.idProduct}/${props.idImage}.jpg`)} alt='imagen' />
             </div>
-
             <div className='ProductInfo'>
                 <div className='ProductTitle'>
                     <h2>{props.productName}</h2>

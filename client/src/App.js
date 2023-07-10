@@ -10,7 +10,7 @@ import Login from './Components/login';
 import Cart from './Components/cart';
 import Stock from './Components/stock';
 import Administrator from './Components/administrator';
-import Home from './Components/productsHome';
+import Home from './Components/products2';
 
 function App() {
   return (
@@ -23,12 +23,19 @@ function App() {
               <Products />
             </div>
           </> } />
+        <Route path='/home' element={  
+        <>
+          <Header />
+          <div className='main-container'>
+            <Home />
+            <h1>Ya estas registrado</h1>
+          </div>
+        </> } />
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/viewAdmin' element={<Stock />}/>
         <Route path='/admin' element={<Administrator />}/>
-        <Route path='/home' element={<Home />}/>
       </Routes>
     </Router>
   );
