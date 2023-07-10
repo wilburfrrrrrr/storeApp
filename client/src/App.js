@@ -10,7 +10,7 @@ import Login from './Components/login';
 import Cart from './Components/cart';
 import Stock from './Components/stock';
 import Administrator from './Components/administrator';
-import Home from './Components/products2';
+import Products2 from './Components/products2';
 
 function App() {
   return (
@@ -23,11 +23,11 @@ function App() {
               <Products />
             </div>
           </> } />
-        <Route path='/home' element={  
+        <Route path='/Home/:id' element={  
         <>
           <Header />
           <div className='main-container'>
-            <Home />
+            <Products2 />
             <h1>Ya estas registrado</h1>
           </div>
         </> } />

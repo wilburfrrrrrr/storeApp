@@ -36,7 +36,7 @@ const CompShowLogin = () => { // Se define el componente.
           // Puedes realizar acciones adicionales después de enviar los datos
           if (response.data.validation){
             if (response.data.rol === 'user'){
-              navigate('/Home');
+              navigate(`/Home/${response.data.id}`);
             } else if (response.data.rol === 'admin'){
               navigate('/viewAdmin')
             }

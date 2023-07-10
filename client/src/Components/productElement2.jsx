@@ -20,7 +20,7 @@ function ProductsHome(props) {
                 </div>
             </div>
 
-            <button className='ProductButton'>More Info</button>
+            <button className='ProductButton'>{props.idUser}</button>
             
         </div>
     );
