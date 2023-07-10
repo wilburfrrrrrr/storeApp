@@ -1,6 +1,7 @@
 import React from 'react';
 import '../Styles/productView.css';
 import { useParams } from 'react-router-dom';
+import  Data from '../data.json';
 
 function ProductView(props) {
     const {idProduct} = useParams();

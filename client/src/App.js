@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 
 //COMPONENTS IMPORT
 // import ProductElement from './Components/productElement';
@@ -25,7 +24,7 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='/viewAdmin' element={<Stock />}/>
       </Routes>
-      <ProductView />
+      {/* <ProductView /> */}
     </Router>
   );
 }
