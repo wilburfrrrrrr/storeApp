@@ -1,7 +1,7 @@
 import React from 'react';
 import '../Styles/header.css';
 import { BsPerson, BsBag } from 'react-icons/bs';
-import logo from '../Images/appImages/Logo.jpeg'; // Importa la imagen
+import logo from '../Images/appImages/logo.jpeg'; // Importa la imagen
 
 const Header = () => {
   return (
