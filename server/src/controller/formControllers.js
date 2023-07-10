@@ -1,7 +1,7 @@
 import mysql from "mysql"
 import { alertMail } from "./mails.js"
 
-const products = [];
+const purchaseList = [];
  
 
 const db = mysql.createConnection({
@@ -62,7 +62,7 @@ export const sigin = (req, res) => {
     });
 }
 
-export const car = (nameProduct, req, res) => {
+export const addCar = (nameProduct, req, res) => {
   const query = 'SELECT * FROM products WHERE name = ?';
   let productObj = {};
   db.query(query, nameProduct)
@@ -76,9 +76,10 @@ export const car = (nameProduct, req, res) => {
           minStock: result[0].minStock
         }
       }
-      products.push(productObj);
-  }).catch(
-    console.error()
+      purchaseList.push(productObj);
+  }).catch( error => {
+      console.error(error)
+    }
   )
 }
 
