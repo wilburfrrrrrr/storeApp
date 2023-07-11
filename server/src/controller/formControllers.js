@@ -15,19 +15,6 @@ function generateAccessToken(user){
   return jwt.sign(user, secretWord, {expiresIn: '1m'})
 }
 
-function validateToken(req, res, next){
-  const accessToken = req.headers['authorization'];
-  if(!accessToken) res.send('Acces denied');
-
-  jwt.verify(accessToken, secretWord, (err, user) => {
-    if (err){
-      res.send('Access denied, token expired or incorrect')
-    }else{
-      next();
-    }
-  })
-}
-
 export const login = (req, res) => {
     const requestData = req.body;
     const query = 'SELECT * FROM users WHERE name = ? AND password = ?';
