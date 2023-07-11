@@ -1,4 +1,7 @@
-import mysql from "mysql"
+import mysql from "mysql";
+import jwt from 'jsonwebtoken';
+
+const secretWord = "mami"
 
 const db = mysql.createConnection({
     host: "localhost",
@@ -6,6 +9,24 @@ const db = mysql.createConnection({
     password: "contraseña12345",
     database: "theStore",
   });
+
+
+function generateAccessToken(user){
+  return jwt.sign(user, secretWord, {expiresIn: '1m'})
+}
+
+function validateToken(req, res, next){
+  const accessToken = req.headers['authorization'];
+  if(!accessToken) res.send('Acces denied');
+
+  jwt.verify(accessToken, secretWord, (err, user) => {
+    if (err){
+      res.send('Access denied, token expired or incorrect')
+    }else{
+      next();
+    }
+  })
+}
 
 export const login = (req, res) => {
     const requestData = req.body;
@@ -20,7 +41,18 @@ export const login = (req, res) => {
         res.status(500).json({ error: 'Error al verificar las credenciales' });
       } else {
         if (results.length > 0) {
-          res.json({ message: 'Credenciales válidas', validation: true, rol:'user', id: results[0].id  });
+          const user = {username: requestData.name}
+
+          const accesToken = generateAccessToken(user);
+
+          //res.header('authorization', accesToken).json({
+            //message: 'Usuario autenticado',
+            //token: accesToken
+          //})
+
+          // Almacena el token en el localStorage
+
+          res.json({ message: 'Credenciales válidas', validation: true, rol:'user', id: results[0].id, accesToken});
         } else {
           // Si no se encuentran resultados en la primera consulta, hacer otra consulta en otra tabla
       
@@ -30,6 +62,8 @@ export const login = (req, res) => {
               res.status(500).json({ error: 'Error al verificar las credenciales' });
             } else {
               if (results2.length > 0) {
+
+                
                 res.json({ message: 'Credenciales válidas para administrador', validation: true, rol:'admin', id: results2[0].id});
               } else {
                 res.status(401).json({ error: 'Credenciales inválidas' });
@@ -55,7 +89,7 @@ export const sigin = (req, res) => {
         console.log('Registro insertado exitosamente');
         res.json({ message: 'Registro insertado exitosamente',  validation: true});
         }
-    });re
+    });
 }
 
 export const update = (req, res, ) => {
@@ -74,3 +108,21 @@ export const update = (req, res, ) => {
     }
   })
 }
+
+export const deletee = (req, res) => {
+  const id = req.params.id;
+  
+  const query = 'DELETE FROM products WHERE id = ?';
+  const values = [id]
+
+  db.query(query,values, (err, results) => {
+    if (err) {
+      console.error('Error al eliminar el registro', err);
+      res.status(500).json({error: 'Error al eliminar el registro'});
+    } else {
+      res.json({message: 'Registro eliminado exitosamente'})
+    }
+  })
+}
+
+
