@@ -13,9 +13,12 @@ const Header = (props) => {
         </div>
       </a>
 
-      <a href='#'>
-        <div className="title">Página de tienda</div>
-      </a>
+      <div className="title">
+        <a href='#'>THE LEGO GARAGE</a>
+      </div>
+      
+        
+
 
       <div className="actions">
         <div className='nameMessage'>

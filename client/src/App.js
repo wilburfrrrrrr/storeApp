@@ -14,6 +14,7 @@ import Stock from './Components/stock';
 import Administrator from './Components/administrator';
 import Products2 from './Components/products2';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {

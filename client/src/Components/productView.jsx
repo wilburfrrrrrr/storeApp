@@ -7,16 +7,16 @@ import Header from './header';
 
 function ProductView(props) {
 
-    const {idProduct} = useParams();
+    const idProduct = useParams();
     console.log(idProduct);
 
     const [data,setData] = useState(Data);
 
-    const product = {};
+    let product = {};
 
    
     data.products.map((current) => {
-        if (current.id == idProduct){
+        if (current.id == idProduct.id){
             product = {
                 "id": current.id,
                 "name": current.name,
@@ -33,18 +33,18 @@ function ProductView(props) {
         <div className='mainContainer'>
             <div className='productContainer'>
                 <div className='productImage'>
-                    <img src={require(`../Images/productsImages/product1/1.jpg`)} alt='productImage' />
+                    <img src={require(`../Images/productsImages/product${product.id}/1.jpg`)} alt='productImage' />
                 </div>
 
                 <div className='productInfo'>
                     <div className='productName'>
-                        <h1>Nombre del Producto</h1>
+                        <h1>{product.name}</h1>
                     </div>
                     <div className='productPrice'>
-                        <h2>Precio</h2>
+                        <h2>{product.price}</h2>
                     </div>
                     <div className='productAmount'>
-                        <h3>CantDisponible</h3>
+                        <h3>Disponibles: {product.amount}</h3>
                     </div>
                     <div className='productButton'>
                         <div></div>
@@ -56,7 +56,7 @@ function ProductView(props) {
             </div>
 
             <div className='productDescription'>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio quasi corrupti itaque possimus iste eum enim dolor rerum quis voluptas, ea doloremque, vitae laboriosam voluptates sequi. Placeat totam unde neque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis omnis eos corporis eaque fuga a sed maxime labore mollitia magni dolorum asperiores ea quod aut voluptate, quo officia iusto laborum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad nostrum repellendus nulla tempore rerum, ipsum sequi soluta optio aliquid aperiam, nihil aut consequatur non dolore reprehenderit delectus aspernatur ut accusantium! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia enim odit, placeat commodi ad inventore ipsam facere dolorum ipsum voluptatibus culpa quo aperiam tenetur sapiente quis nobis blanditiis. Cumque, magnam?</p>
+                    <p>{product.description}</p>
             </div>
 
         </div>

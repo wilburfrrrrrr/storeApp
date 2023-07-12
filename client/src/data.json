@@ -5,7 +5,7 @@
       "name": "Lego technic cazador policiaco carro policia",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 50,
-      "price": 159.920,
+      "price": "159.920",
       "minStock": 5,
       "imagen": "./images/productsImages/product1/1.jpg" 
     },
@@ -14,7 +14,7 @@
       "name": "Armable Lego Dc Batman Batmóvil Caza De The Penguin",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 15,
-      "price": 219.900,
+      "price": "219.900",
       "minStock": 5,
       "imagen": "./images/productsImages/product2/producto2.1.jpg" 
     },
@@ -23,7 +23,7 @@
       "name": "Set De Lego Disney Buzz Lightyear Nave Espacial Xl-15 76832",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 15,
-      "price": 399.900,
+      "price": "399.900",
       "minStock": 5,
       "imagen": "./images/productsImages/product3/producto3.1.jpg" 
     },
@@ -32,7 +32,7 @@
       "name": "DRAGÓN DEL FUEGO EVO DE KAI",
       "description": "Pon en las manos de tu peque de 6 años o más todo lo que necesita para vivir trepidantes aventuras ninja con el juego construible Dragón del Fuego EVO de Kai (71762). El dragón de juguete posee mandíbula, cabeza, cola y patas articuladas y puede transformarse en una criatura más grande, fuerte y rápida.",
       "amount": 20,
-      "price": 249.900,
+      "price": "249.900",
       "minStock": 5,
       "imagen": "./images/productsImages/product4/producto4.1.jpg" 
     },
@@ -41,7 +41,7 @@
       "name": "Armable Lego Speed Champions Toyota Gr Supra",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 25,
-      "price": 159.900,
+      "price": "159.900",
       "minStock": 5,
       "imagen": "./images/productsImages/product5/producto5.1.jpg" 
     },
@@ -50,7 +50,7 @@
       "name": "LEGO Star Wars Millennium Falcon 75257",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 15,
-      "price": 994.777,
+      "price": "994.777",
       "minStock": 5,
       "imagen": "./images/productsImages/product6/producto6.1.jpg" 
     },
@@ -59,7 +59,7 @@
       "name": "Armable Lego Speed Champions Toyota Gr Supra",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 25,
-      "price": 159.900,
+      "price": "159.900",
       "minStock": 5
     },
     {
@@ -92,7 +92,7 @@
       "name": "Bourvill Kit de luces LED para casco Lego Boba Fett 75277",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 25,
-      "price": 264.777,
+      "price": "264.777",
       "minStock": 5
     },
     {
@@ -100,7 +100,7 @@
       "name": "LEGO Star Wars Captain Rex – Juego de casco 75349 The Clone Wars coleccionable",
       "description": "DESCRIPCIÓN PENDIENTE",
       "amount": 25,
-      "price": 499.777,
+      "price": "499.777",
       "minStock": 5
     }
   ]
