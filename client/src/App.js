@@ -9,8 +9,6 @@ import Products from './Components/home';
 import Register from './Components/register';
 import Login from './Components/login';
 import ProductView from './Components/productView';
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; 
 import Cart from './Components/cart';
 import Stock from './Components/stock';
 import Administrator from './Components/administrator';
