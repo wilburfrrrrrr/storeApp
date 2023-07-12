@@ -1,9 +1,11 @@
 import React from 'react';
 import '../Styles/productView.css';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import  Data from '../data.json';
 import { useState } from 'react';
-import Header from './header';
+import Header from './header'; 
+import ImageSlider from './ImageSlider';
+
 
 function ProductView(props) {
 
@@ -27,11 +29,21 @@ function ProductView(props) {
             console.log(product);
         }
     });
+
+    const slides = [ 
+        {url:"http://localhost:3000/1.jpg", title: 'Image 1'},
+        {url:`http://localhost:3000/2.jpg`, title: 'Image 2'},
+        {url:`http://localhost:3000/3.jpg`, title: 'Image 3'},
+    ]
+
+    console.log(slides);
         
     return(
-
         <div className='mainContainer'>
             <div className='productContainer'>
+                {/* <div className='imageSlider'>
+                    <ImageSlider slides={slides}/>
+                </div> */}
                 <div className='productImage'>
                     <img src={require(`../Images/productsImages/product${product.id}/1.jpg`)} alt='productImage' />
                 </div>
@@ -49,7 +61,9 @@ function ProductView(props) {
                     <div className='productButton'>
                         <div></div>
                         <input type='number'/>
-                        <button>Agregar al Carrito</button>
+                        <Link to={`/cart`} className='ProductLink'>
+                            <button>Agregar al Carrito</button>
+                        </Link>
                     </div>
 
                 </div>

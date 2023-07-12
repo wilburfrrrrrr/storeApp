@@ -1,5 +1,8 @@
 import { useState } from "react";
-import "./ImageSlider.css";
+import "../Styles/ImageSlider.css"
+
+
+
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,7 +25,7 @@ const ImageSlider = ({ slides }) => {
 
   // imagen de fondo 
   const slideStylesWidthBackground = {
-    backgroundImage: `url(${slides[currentIndex].url})`,
+    backgroundImage: `url(${slides[currentIndex].url})`
   };
 
   return (

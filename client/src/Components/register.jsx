@@ -1,6 +1,6 @@
 import '../Styles/register.css';
 import React, {useState} from 'react'
-import logo from '../Images/appImages/Logo.jpeg';
+import logo from '../Images/appImages/logo.jpeg';
 import axios from 'axios'
 
 const Register = () => {
