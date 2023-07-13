@@ -1,0 +1,1 @@
+export const contra = 'tumb4lapu3rt4';

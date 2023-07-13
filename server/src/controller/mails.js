@@ -1,11 +1,12 @@
 import nodemailer from 'nodemailer'
+import {contra} from '../controller/private/private.js'
 
 export const alertMail = () =>{
 	const transport = nodemailer.createTransport({
 		service: 'gmail',
 		auth: {
 			user: 'kevin.ossa@utp.edu.co',
-			pass: 'tumb4lapu3rt4',
+			pass: contra,
 		},
 	});
 
