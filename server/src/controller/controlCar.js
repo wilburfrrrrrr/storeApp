@@ -69,6 +69,28 @@ export const calculatePrice = (req, res) => {
   return prices;
 }
 
+
+// export const createSession = async (req, res) => {
+// 	const data = req.body;
+// 	// console.log(data);
+// 	const line_items = data.line_items;
+// 	// console.log(items);
+// 	// const prueba = {
+// 	//   items,
+// 	//   mode: 'payment',
+// 	//   success_url: 'http://localhost:9000/success',
+// 	//   cancel_url: 'http://localhost:9000/cancel',
+// 	// }
+// 	// console.log(prueba);
+// 	const session = await stripe.checkout.sessions.create({
+// 	  line_items,
+// 	  mode: 'payment',
+// 	  success_url: 'http://localhost:9000/success',
+// 	  cancel_url: 'http://localhost:9000/cancel',
+// 	})
+// 	res.json({result:session})
+//   }
+
 export const createSession = async (req, res) => {
   let price = calculatePrice() / 40;
   const session = await stripe.checkout.sessions.create({

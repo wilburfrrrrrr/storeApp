@@ -10,7 +10,6 @@ import Register from './Components/register';
 import Login from './Components/login';
 import ProductView from './Components/productView';
 import Cart from './Components/cart';
-import Stock from './Components/stock';
 import Administrator from './Components/administrator';
 import Products2 from './Components/products2';
 
@@ -58,15 +57,11 @@ function App() {
         />
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/viewAdmin'/>
         <Route path='/viewUser'/>
         <Route path='/cart' element={<Cart />} />
-        <Route path='/viewAdmin' element={<Stock />}/>
         <Route path='/admin' element={<Administrator />} />
         <Route path='/viewProduct' element={<ProductView />} />
         <Route path='/product/:id' element={<ProductView />}/>
-
-        <Route path='/admin' element={<Administrator />}/>
       </Routes>
     </Router>
   );

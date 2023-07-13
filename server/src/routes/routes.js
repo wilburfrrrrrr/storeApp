@@ -2,11 +2,10 @@ import bodyParser from "body-parser"
 import { Router } from "express"
 import cors from 'cors'
 
-
-import { calculatePrice, createSession, addCar } from "../controller/controlCar.js"
-import {login, sigin} from "../controller/formControllers.js"
-import {update} from "../controller/formControllers.js"
+import {login, sigin, update} from "../controller/formControllers.js"
+import {calculatePrice, createSession, addCar, cancelPurchaseList, cleanPurchaseList} from "../controller/controlCar";
 import {administrator} from "../controller/adminControl.js"
+
 
 const router = Router()
 
@@ -23,13 +22,12 @@ router.post('/register',sigin)
 
 router.post('/login', login);
 
-router.post('/purchase', calculatePrice)
-
+// router.post('/purchase', checkInventory)
 router.put('/update', update);
 
 router.get('/administrator', administrator);
 
-router.get('/create-checkout-session', createSession)
+router.post('/checkout', createSession)
 
 router.get('/success')
 

@@ -1,16 +1,46 @@
 import mysql from "mysql"
+import { alertMail } from "./mails.js"
+import Stripe from 'stripe'
 import jwt from 'jsonwebtoken';
 
+
 const secretWord = "mami"
+
+
 const db = mysql.createConnection({
-  host    : "localhost",
-  user    : "root",
-  password: "contraseña12345",
-  database: "theStore",
+  host: "berfinp9tsh1k6yqu993-mysql.services.clever-cloud.com",
+  user: "unspl4l656azvazq",
+  password: "xIAGTQgUi7ZLBygCXJh",
+  database: "berfinp9tsh1k6yqu993",
+  port: "20379"
 });
 
+
+
+// export const createSession = async (req, res) => {
+//   const session = await stripe.checkout.sessions.create({
+//     line_items: [
+//       {
+//         price_data: {
+//           product_data: {
+//             name: 'Carrito de productos',
+//             description: 'Cobro por productos en el carrito',
+//           },
+//           currency: 'usd',
+//           unit_amount: 20000, //200.00
+//         },
+//         quantity: 1
+//       }
+//     ],
+//     mode: 'payment',
+//     success_url: 'http://localhost:9000/success',
+//     cancel_url: 'http://localhost:9000/cancel',
+//   })
+//   return res.json({result:session})
+// }
+
 function generateAccessToken(user) {
-  return jwt.sign(user, secretWord, { expiresIn: '1m' })
+  return jwt.sign(user, secretWord, { expiresIn: '100m' })
 }
 
 export const login = (req, res) => {
@@ -47,9 +77,11 @@ export const login = (req, res) => {
             res.status(500).json({ error: 'Error al verificar las credenciales' });
           } else {
             if (results2.length > 0) {
+              const admin = { username: requestData.name }
 
+              const accesTokenAdmin = generateAccessToken(admin);
 
-              res.json({ message: 'Credenciales válidas para administrador', validation: true, rol: 'admin', id: results2[0].id });
+              res.json({ message: 'Credenciales válidas para administrador', validation: true, rol: 'admin', id: results2[0].id, accesTokenAdmin });
             } else {
               res.status(401).json({ error: 'Credenciales inválidas' });
             }
