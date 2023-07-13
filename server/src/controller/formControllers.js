@@ -1,28 +1,17 @@
-import mysql from "mysql"
-import { alertMail } from "./mails.js"
-
-const purchaseList = new Array;
- 
-
-const db = mysql.createConnection({
-    host    : "localhost",
-    user    : "root",
-    password: "contraseña12345",
-    database: "theStore",
-  });
-
 import mysql from "mysql";
 import Stripe from 'stripe'
 import jwt from 'jsonwebtoken';
+import { alertMail } from "./mails.js"
 
+const purchaseList = new Array;
 const secretWord = "mami"
 const stripeSecret = "sk_test_51NS4P4KVzQlPajzBoWrdb25nCwhexkdZe8E1qvNIDGOaEEEvqxzzomsGg8pcGwkazZRrMyhcvWLbhiMpPl5pgHhd00S8mgl93p"
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "contraseña12345",
-  database: "theStore",
+  host: "berfinp9tsh1k6yqu993-mysql.services.clever-cloud.com",
+  user: "unspl4l656azvazq",
+  password: "xIAGTQgUi7ZLBygCXJh",
+  database: "berfinp9tsh1k6yqu993",
 });
 
 const stripe = new Stripe(stripeSecret)
@@ -50,7 +39,7 @@ export const createSession = async (req, res) => {
 }
 
 function generateAccessToken(user) {
-  return jwt.sign(user, secretWord, { expiresIn: '1m' })
+  return jwt.sign(user, secretWord, { expiresIn: '100m' })
 }
 
 export const login = (req, res) => {

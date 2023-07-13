@@ -58,15 +58,12 @@ function App() {
         />
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
-        <Route path='/viewAdmin'/>
         <Route path='/viewUser'/>
         <Route path='/cart' element={<Cart />} />
-        <Route path='/viewAdmin' element={<Stock />}/>
+        {/* <Route path='/viewAdmin' element={<Stock />}/> */}
         <Route path='/admin' element={<Administrator />} />
         <Route path='/viewProduct' element={<ProductView />} />
         <Route path='/product/:id' element={<ProductView />}/>
-
-        <Route path='/admin' element={<Administrator />}/>
       </Routes>
     </Router>
   );
