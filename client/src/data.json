@@ -3,27 +3,27 @@
     {
       "id": 1,
       "name": "Lego technic cazador policiaco carro policia",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "¡Acciona el motor de carga manual y emprende una persecución a toda velocidad con el potente Cazador Policial LEGO® Technic (42091)!",
       "amount": 50,
-      "price": "159.920",
+      "price": "159920",
       "minStock": 5,
       "imagen": "./images/productsImages/product1/1.jpg" 
     },
     {
       "id": 2,
       "name": "Armable Lego Dc Batman Batmóvil Caza De The Penguin",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "Este Batmóvil preparado para el combate está equipado con 2 cañones automáticos que lanzan mega misiles simultánea o individualmente cuando los pequeños presionan las placas del capó. ",
       "amount": 15,
-      "price": "219.900",
+      "price": "219900",
       "minStock": 5,
       "imagen": "./images/productsImages/product2/producto2.1.jpg" 
     },
     {
       "id": 3,
       "name": "Set De Lego Disney Buzz Lightyear Nave Espacial Xl-15 76832",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "Deja que los fanáticos del espacio a partir de los 8 años jueguen al héroe en su propia aventura intergaláctica con el juguete coleccionable para construir XL-15 Spaceship (76832).",
       "amount": 15,
-      "price": "399.900",
+      "price": "399900",
       "minStock": 5,
       "imagen": "./images/productsImages/product3/producto3.1.jpg" 
     },
@@ -32,75 +32,75 @@
       "name": "DRAGÓN DEL FUEGO EVO DE KAI",
       "description": "Pon en las manos de tu peque de 6 años o más todo lo que necesita para vivir trepidantes aventuras ninja con el juego construible Dragón del Fuego EVO de Kai (71762). El dragón de juguete posee mandíbula, cabeza, cola y patas articuladas y puede transformarse en una criatura más grande, fuerte y rápida.",
       "amount": 20,
-      "price": "249.900",
+      "price": "249900",
       "minStock": 5,
       "imagen": "./images/productsImages/product4/producto4.1.jpg" 
     },
     {
       "id": 5,
       "name": "Armable Lego Speed Champions Toyota Gr Supra",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "Este coche de juguete coleccionable, por su chasis amplio, cuenta con espacio para una cabina biplaza y aún más elementos de extraordinario realismo.",
       "amount": 25,
-      "price": "159.900",
+      "price": "159900",
       "minStock": 5,
       "imagen": "./images/productsImages/product5/producto5.1.jpg" 
     },
     {
       "id": 6,
       "name": "LEGO Star Wars Millennium Falcon 75257",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "Esta versión para construir del emblemático carguero Corelliano cuenta con numerosos detalles, como torretas defensivas superior e inferior giratorias, 2 cañones automáticos, una rampa descendente y una cabina abatible con espacio para 2 minifiguras.",
       "amount": 15,
-      "price": "994.777",
+      "price": "994777",
       "minStock": 5,
       "imagen": "./images/productsImages/product6/producto6.1.jpg" 
     },
     {
       "id": 7,
-      "name": "Armable Lego Speed Champions Toyota Gr Supra",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "name": "LEGO Technic Lamborghini Sián FKP 37 42115 ",
+      "description": "Explora las características fieles del modelo del coche, incluyendo motor V12 con pistones móviles, dirección y suspensión delantera y trasera.",
       "amount": 25,
-      "price": "159.900",
+      "price": "159900",
       "minStock": 5
     },
     {
       "id": 8,
       "name": "LEGO 10227 Star Wars UCS B-wing luchador",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "Este fantástico modelo presenta todo lo que esperaría de nuestra gama de coleccionistas premium, incluida la cabina giratoria y autonivelante y configuraciones de alas realistas para aterrizar y volar. ",
       "amount": 25,
-      "price": "6'093.777",
+      "price": "6093777",
       "minStock": 5
     },
     {
       "id": 9,
       "name": "LEGO Creator Oficina del Detective de Expertos",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "¡Descubre un mundo de misterio y aventura con la Oficina del Detective, de LEGO® Creator Expert! Atraviesa el arco y entra en la barbería, donde los clientes reciben atenciones mientras se miran en el gran espejo de pared.",
       "amount": 25,
-      "price": "5'015.777",
+      "price": "5015777",
       "minStock": 5
     },
     {
       "id": 10,
-      "name": "Nifeliz DIVN Race Car MOC Building Kit ",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "name": "Nifeliz DIVN Race Car MOC Building Kit",
+      "description": "kit de construcción y juguete de ingeniería, kit de construcción de coche deportivo coleccionable para adultos, modelo de coche deportivo a escala 1:8.",
       "amount": 25,
-      "price": "1'097.777",
+      "price": "1097777",
       "minStock": 5
     },
 
     {
       "id": 11,
       "name": "Bourvill Kit de luces LED para casco Lego Boba Fett 75277",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "Juego de luces compatible con Lego 75277 – Versión clásica (kit de luces sin modelo)",
       "amount": 25,
-      "price": "264.777",
+      "price": "264777",
       "minStock": 5
     },
     {
       "id": 12,
       "name": "LEGO Star Wars Captain Rex – Juego de casco 75349 The Clone Wars coleccionable",
-      "description": "DESCRIPCIÓN PENDIENTE",
+      "description": "Muestra respeto por un gran comandante clon de la Legión 501 con este juego de casco coleccionable de LEGO Star Wars Captain Rex (75349).",
       "amount": 25,
-      "price": "499.777",
+      "price": "499777",
       "minStock": 5
     }
   ]

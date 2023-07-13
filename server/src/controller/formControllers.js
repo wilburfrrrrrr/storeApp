@@ -1,22 +1,24 @@
 import mysql from "mysql"
 import { alertMail } from "./mails.js"
-
-const purchaseList = new Array;
- 
-const db = mysql.createConnection({
-    host    : "localhost",
-    user    : "root",
-    password: "contraseña12345",
-    database: "theStore",
-  });
-
 import Stripe from 'stripe'
 import jwt from 'jsonwebtoken';
 
-const secretWord = "mami"
+const purchaseList = new Array;
 const stripeSecret = "sk_test_51NS4P4KVzQlPajzBoWrdb25nCwhexkdZe8E1qvNIDGOaEEEvqxzzomsGg8pcGwkazZRrMyhcvWLbhiMpPl5pgHhd00S8mgl93p"
 
 const stripe = new Stripe(stripeSecret)
+
+const secretWord = "mami"
+
+
+const db = mysql.createConnection({
+  host: "berfinp9tsh1k6yqu993-mysql.services.clever-cloud.com",
+  user: "unspl4l656azvazq",
+  password: "xIAGTQgUi7ZLBygCXJh",
+  database: "berfinp9tsh1k6yqu993",
+  port: "20379"
+});
+
 
 export const createSession = async (req, res) => {
   const data = req.body;
@@ -62,7 +64,7 @@ export const createSession = async (req, res) => {
 // }
 
 function generateAccessToken(user) {
-  return jwt.sign(user, secretWord, { expiresIn: '1m' })
+  return jwt.sign(user, secretWord, { expiresIn: '100m' })
 }
 
 export const login = (req, res) => {
@@ -99,9 +101,11 @@ export const login = (req, res) => {
             res.status(500).json({ error: 'Error al verificar las credenciales' });
           } else {
             if (results2.length > 0) {
+              const admin = { username: requestData.name }
 
+              const accesTokenAdmin = generateAccessToken(admin);
 
-              res.json({ message: 'Credenciales válidas para administrador', validation: true, rol: 'admin', id: results2[0].id });
+              res.json({ message: 'Credenciales válidas para administrador', validation: true, rol: 'admin', id: results2[0].id, accesTokenAdmin });
             } else {
               res.status(401).json({ error: 'Credenciales inválidas' });
             }
