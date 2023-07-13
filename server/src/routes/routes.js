@@ -5,6 +5,7 @@ import cors from 'cors'
 import {checkInventory, login, sigin} from "../controller/formControllers.js"
 import {login, sigin, update} from "../controller/formControllers.js"
 import {administrator} from "../controller/adminControl.js"
+import {createSession} from "../controller/formControllers.js"
 
 const router = Router()
 
@@ -26,6 +27,10 @@ router.put('/update', update);
 
 router.get('/administrator', administrator);
 
+router.get('/create-checkout-session', createSession)
 
+router.get('/success')
+
+router.get('/cancel')
 
 export default router
