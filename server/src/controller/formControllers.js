@@ -1,22 +1,16 @@
 import mysql from "mysql"
 import { alertMail } from "./mails.js"
-
-const purchaseList = new Array;
- 
-
-const db = mysql.createConnection({
-    host    : "localhost",
-    user    : "root",
-    password: "contraseña12345",
-    database: "theStore",
-  });
-
-import mysql from "mysql";
 import Stripe from 'stripe'
 import jwt from 'jsonwebtoken';
 
-const secretWord = "mami"
+const purchaseList = new Array;
+
 const stripeSecret = "sk_test_51NS4P4KVzQlPajzBoWrdb25nCwhexkdZe8E1qvNIDGOaEEEvqxzzomsGg8pcGwkazZRrMyhcvWLbhiMpPl5pgHhd00S8mgl93p"
+
+const stripe = new Stripe(stripeSecret)
+
+const secretWord = "mami"
+
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -25,7 +19,6 @@ const db = mysql.createConnection({
   database: "theStore",
 });
 
-const stripe = new Stripe(stripeSecret)
 
 export const createSession = async (req, res) => {
   const session = await stripe.checkout.sessions.create({
@@ -87,9 +80,11 @@ export const login = (req, res) => {
             res.status(500).json({ error: 'Error al verificar las credenciales' });
           } else {
             if (results2.length > 0) {
+              const admin = { username: requestData.name }
 
+              const accesTokenAdmin = generateAccessToken(admin);
 
-              res.json({ message: 'Credenciales válidas para administrador', validation: true, rol: 'admin', id: results2[0].id });
+              res.json({ message: 'Credenciales válidas para administrador', validation: true, rol: 'admin', id: results2[0].id, accesTokenAdmin });
             } else {
               res.status(401).json({ error: 'Credenciales inválidas' });
             }
@@ -143,7 +138,7 @@ export const addCar = (nameProduct, req, res) => {
   )
 }
 
-const checkInventory = (stock, req, res) => {
+export const checkInventory = (stock, req, res) => {
   const minStock = 5, maxStock = 30;
   // const stock = product.minStock;
   if (stock >= maxStock || stock <= minStock){

@@ -40,7 +40,7 @@ const CompShowLogin = () => { // Se define el componente.
             if (response.data.rol === 'user'){
               navigate(`/Home/${response.data.id}`);
             } else if (response.data.rol === 'admin'){
-              navigate('/viewAdmin')
+              navigate('/admin')
             }
           }else{
             navigate('/login')
