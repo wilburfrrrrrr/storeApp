@@ -3,7 +3,6 @@ import { alertMail } from "./mails.js"
 
 const purchaseList = new Array;
  
-
 const db = mysql.createConnection({
     host    : "localhost",
     user    : "root",
