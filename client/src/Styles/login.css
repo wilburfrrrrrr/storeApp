@@ -1,0 +1,82 @@
+.container-login {
+    height: 500px;
+    width: 400px;
+    margin: auto;
+    background-color: rgb(233, 233, 217);
+    border: 4px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 2%;
+}
+
+.container-logo-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-login{
+    display: flex;
+    justify-content: center;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.logo-login {
+    height: 160px;
+    border-radius: 5px;
+}
+
+.container-input {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.input-login {
+    height: 25px;
+    width: 90%;
+    border-radius: 15px;
+    padding: 4px 0px 4px 8px;
+    border: none;
+    background-color:#ffffff;
+}
+
+.container-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-submit {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    height: 40px;
+    width: 150px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 7px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(241, 33, 33);
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #ffffff;
+}
+
+.register-link {
+    display: flex;
+    justify-content: center;
+}
+
+.register {
+    width: fit-content;  
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    font-style: italic;
+}
