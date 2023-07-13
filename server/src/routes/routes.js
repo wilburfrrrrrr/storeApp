@@ -2,8 +2,7 @@ import bodyParser from "body-parser"
 import { Router } from "express"
 import cors from 'cors'
 
-import {checkInventory, login, sigin} from "../controller/formControllers.js"
-import {login, sigin, update} from "../controller/formControllers.js"
+import {checkInventory, login, sigin, update} from "../controller/formControllers.js"
 import {administrator} from "../controller/adminControl.js"
 import {createSession} from "../controller/formControllers.js"
 
@@ -27,7 +26,7 @@ router.put('/update', update);
 
 router.get('/administrator', administrator);
 
-router.get('/create-checkout-session', createSession)
+router.post('/checkout', createSession)
 
 router.get('/success')
 

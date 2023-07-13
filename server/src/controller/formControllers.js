@@ -10,7 +10,6 @@ const db = mysql.createConnection({
     database: "theStore",
   });
 
-import mysql from "mysql";
 import Stripe from 'stripe'
 import jwt from 'jsonwebtoken';
 
@@ -20,26 +19,47 @@ const stripeSecret = "sk_test_51NS4P4KVzQlPajzBoWrdb25nCwhexkdZe8E1qvNIDGOaEEEvq
 const stripe = new Stripe(stripeSecret)
 
 export const createSession = async (req, res) => {
+  const data = req.body;
+  // console.log(data);
+  const line_items = data.line_items;
+  // console.log(items);
+  // const prueba = {
+  //   items,
+  //   mode: 'payment',
+  //   success_url: 'http://localhost:9000/success',
+  //   cancel_url: 'http://localhost:9000/cancel',
+  // }
+  // console.log(prueba);
   const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
-        price_data: {
-          product_data: {
-            name: 'Carrito de productos',
-            description: 'Cobro por productos en el carrito',
-          },
-          currency: 'usd',
-          unit_amount: 20000, //200.00
-        },
-        quantity: 1
-      }
-    ],
+    line_items,
     mode: 'payment',
     success_url: 'http://localhost:9000/success',
     cancel_url: 'http://localhost:9000/cancel',
   })
-  return res.json(session)
+  res.json({result:session})
 }
+
+// export const createSession = async (req, res) => {
+//   const session = await stripe.checkout.sessions.create({
+//     line_items: [
+//       {
+//         price_data: {
+//           product_data: {
+//             name: 'Carrito de productos',
+//             description: 'Cobro por productos en el carrito',
+//           },
+//           currency: 'usd',
+//           unit_amount: 20000, //200.00
+//         },
+//         quantity: 1
+//       }
+//     ],
+//     mode: 'payment',
+//     success_url: 'http://localhost:9000/success',
+//     cancel_url: 'http://localhost:9000/cancel',
+//   })
+//   return res.json({result:session})
+// }
 
 function generateAccessToken(user) {
   return jwt.sign(user, secretWord, { expiresIn: '1m' })
@@ -135,7 +155,7 @@ export const addCar = (nameProduct, req, res) => {
   )
 }
 
-const checkInventory = (stock, req, res) => {
+export const checkInventory = (stock, req, res) => {
   const minStock = 5, maxStock = 30;
   // const stock = product.minStock;
   if (stock >= maxStock || stock <= minStock){
