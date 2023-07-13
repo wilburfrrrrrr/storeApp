@@ -10,7 +10,6 @@ import Register from './Components/register';
 import Login from './Components/login';
 import ProductView from './Components/productView';
 import Cart from './Components/cart';
-import Stock from './Components/stock';
 import Administrator from './Components/administrator';
 import Products2 from './Components/products2';
 

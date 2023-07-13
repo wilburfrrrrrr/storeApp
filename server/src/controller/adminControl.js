@@ -1,11 +1,20 @@
 import mysql from "mysql";
 
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "contraseña12345",
+//   database: "theStore",
+// });
+
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "contraseña12345",
-  database: "theStore",
+  host: "berfinp9tsh1k6yqu993-mysql.services.clever-cloud.com",
+  user: "unspl4l656azvazq",
+  password: "xIAGTQgUi7ZLBygCXJh",
+  database: "berfinp9tsh1k6yqu993",
 });
+
+db.query("USE berfinp9tsh1k6yqu993");
 
 const getAdmin = () => {
   return new Promise((resolve, reject) => {

@@ -9,9 +9,9 @@ function Administrator() {
 
   const handleButtonClick = (componentName) => {
     if (componentName === 'administratorForm') {
-      setDisplayComponent(<AdministratorForm />);
+      setDisplayComponent(<AdministratorForm admin={admin.admin}/>);
     } else if (componentName === 'stock') {
-      setDisplayComponent(<Stock />);
+      setDisplayComponent(<Stock productsArray={admin.products}/>);
     }
   };
 

@@ -2,7 +2,6 @@ import mysql from "mysql"
 import { alertMail } from "./mails.js"
 import Stripe from 'stripe'
 import jwt from 'jsonwebtoken';
-import { alertMail } from "./mails.js"
 
 const purchaseList = new Array;
 const stripeSecret = "sk_test_51NS4P4KVzQlPajzBoWrdb25nCwhexkdZe8E1qvNIDGOaEEEvqxzzomsGg8pcGwkazZRrMyhcvWLbhiMpPl5pgHhd00S8mgl93p"
