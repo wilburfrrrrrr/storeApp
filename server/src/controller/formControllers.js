@@ -18,13 +18,6 @@ import jwt from 'jsonwebtoken';
 const secretWord = "mami"
 const stripeSecret = "sk_test_51NS4P4KVzQlPajzBoWrdb25nCwhexkdZe8E1qvNIDGOaEEEvqxzzomsGg8pcGwkazZRrMyhcvWLbhiMpPl5pgHhd00S8mgl93p"
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "contraseña12345",
-  database: "theStore",
-});
-
 const stripe = new Stripe(stripeSecret)
 
 export const createSession = async (req, res) => {
