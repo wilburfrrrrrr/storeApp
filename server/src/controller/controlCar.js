@@ -2,6 +2,30 @@ import mysql from "mysql"
 import { alertMail } from "./mails.js"
 import Stripe from 'stripe'
 import jwt from 'jsonwebtoken';
+import { query } from "express";
+
+// se agrega tabla de carrito y lista de productos
+// campos para carrito -> id del carrito, id del usuario FK, fecha de creacion
+// lista de productos -> id del proceso, id del carrito, id del producto, cantidad
+/*
+CREATE TABLE IF NOT EXISTS userCar(
+  id PK
+  userId FK
+  date
+);
+
+CREATE TABLE IF NOT EXISTS puchaseList(
+  id
+  carId
+  productId
+  amount
+);
+
+
+id = req.id
+queryCarOpen 
+queryVerifyUser 'SELECT'
+*/
 
 const stripeSecret = "sk_test_51NS4P4KVzQlPajzBoWrdb25nCwhexkdZe8E1qvNIDGOaEEEvqxzzomsGg8pcGwkazZRrMyhcvWLbhiMpPl5pgHhd00S8mgl93p"
 const purchaseList = new Array;
@@ -19,38 +43,61 @@ const db = mysql.createConnection({
 // 	const queryProducts = 'SELECT * FROM '
 // }
 
-export const addCar = (req, res) => {
-	const query = 'SELECT * FROM products WHERE name = ?';
-	const queryReserve = 'UPDATE products SET minStock = ? WHERE id = ?';
-	let nameProduct = req;
-	let productObj = {};
-	
-	db.query(query, nameProduct)
-	.then(result => {
-	  if (result.length > 0){
-		  productObj = {
-			id      : result[0].id,
-			name    : result[0].name,
-			amount  : result[0].amount,
-			price   : result[0].price,
-			minStock: result[0].amount - 1
-		  }
-		  db.query(queryReserve, [productObj.amount, productObj.id])
-		  .then(() => {console.log('Producto reservado')})
-		  .catch(() => {console.error('Error en la reserva del producto, problemas de acceso')})
-		}
-		purchaseList.push(productObj);
-	}).catch( error => {
-	  throw error;
-	}
-	)
-  }
+export const addCar = async (req, res) => {
+  const token   = localStorage.getItem('accessToken');
+  const userId  = token.id;
+	const querySelect           = 'SELECT * FROM products WHERE name = ?';
+	const queryReserve          = 'UPDATE products SET amount = ? WHERE id = ?';
+  const queryVerifyCar        = 'SELECT * FROM userCar WHERE userId = ?';
+  const queryInsertCar        = 'INSERT INTO userCar (userId, date) VALUES (?, ?)';
+  const queryVerifyProduct    = 'SELECT * FROM purchaseList WHERE productId = ?';
+  const queryIncreaseProduct  = 'UPDATE purchaseList SET amount = ? WHERE productId = ?';
+  const queryAddProduct       = 'INSERT INTO purchaseList (id, carId, productId, amount) VALUES (?, ?, ?, ?)';
+  const queryAddCar           = 'INSERT INTO ';
+
+  db.query(queryVerifyCar, userId)
+  .then(result => {
+    if (result.length == 0){
+      db.queryInsertCar(queryInsertCar, [userId, curdate()])
+      .then(() => {
+        console.log("Carro asignado a usuario")
+      })
+      .catch(console.error("Error al asignar carro a usuario"))
+    }
+  },
+    db.query(querySelect, )
+    .then(results => {
+
+    })
+    .catch(console.error("Error al buscar el producto en el inventario"))
+  )
+  .catch(console.error("Error al acceder al registro de carros"))
+  
+
+  
+  
+  
+
+}
 
 
+export const removeCar = (req, res) => {
+	const token   = localStorage.getItem('accessToken');
+  const userId  = token.id;
+	const querySelect           = 'SELECT * FROM products WHERE name = ?';
+	const queryReserve          = 'UPDATE products SET minStock = ? WHERE id = ?';
+  const queryVerifyCar        = 'SELECT * FROM userCar WHERE userId = ?';
+  const queryInsertCar        = 'INSERT INTO userCar (id, userId, date) VALUES (?, ?, ?)';
+  const queryVerifyProduct    = 'SELECT * FROM purchaseList WHERE productId = ?';
+  const queryIncreaseProduct  = 'UPDATE purchaseList SET amount = ? WHERE productId = ?';
+  const queryAddCar           = 'INSERT INTO purchaseList (id, carId, productId, amount) VALUES (?, ?, ?, ?)';
+}
   
 
 const checkInventory = (stock, req, res) => {
-//   const minStock = db.query('SELECT minStock FROM products WHERE id = ?', )
+  const queryAmount = 'SELECT amount FROM products WHERE id = ?';
+  const queryMinStack = 'SELECT minStock FROM products WHERE id = ?';
+  // const minStock = db.query('SELECT minStock FROM products WHERE id = ?', )
   const minStock = 5, maxStock = 30;
   // const stock = product.minStock;
   if (stock >= maxStock || stock <= minStock){
