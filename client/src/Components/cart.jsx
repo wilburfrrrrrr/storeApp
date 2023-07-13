@@ -1,8 +1,10 @@
 import React from 'react';
 import '../Styles/cart.css';
 import productImg from '../Images/productsImages/product1/1.jpg';
+import axios from 'axios';
 
 function CartItem() {
+    axios.get('localhost:9000/purchase');
     return (
         <div className='item'>
             <div className='itemImage'>

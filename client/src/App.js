@@ -1,5 +1,4 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom'; 
 
@@ -15,6 +14,7 @@ import Stock from './Components/stock';
 import Administrator from './Components/administrator';
 import Products2 from './Components/products2';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -33,7 +33,9 @@ function App() {
       <Routes>
         <Route path='/' element={  
           <>
-            <Header />
+            <Header 
+            idUser="1"
+            />
             <div className='main-container'>
               <Products />
             </div>

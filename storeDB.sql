@@ -1,4 +1,3 @@
-show databases;
 CREATE DATABASE theStore;
 USE theStore;
 
@@ -50,3 +49,4 @@ insert into administrators (name, password, email, address, phone)
 values ("andres", "decode@810", "andres.palacio@utp.edu.co", "pereira", 3013004022);
 insert into administrators (name, password, email, address, phone)
 values ("jefferson", "hacking#77", "david.arteaga@utp.edu.co", "dosquebradas", 3185002087);
+

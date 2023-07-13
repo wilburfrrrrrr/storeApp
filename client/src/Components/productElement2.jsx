@@ -3,8 +3,6 @@ import '../Styles/productElement.css';
 
 function ProductsHome(props) {
 
-
-
     return(
         <div className="ProductContainer">
             

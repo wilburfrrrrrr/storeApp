@@ -1,5 +1,6 @@
 import '../Styles/register.css';
 import React, {useState} from 'react'
+import logo from '../Images/appImages/logo.jpeg';
 import axios from 'axios'
 
 const Register = () => {
@@ -48,7 +49,18 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="container-register">
+      <div className="container-logo-login">
+        <img className="logo-login" alt='Imagen Logo' src={logo} />
+      </div>
+
+    <form className="formulario" onSubmit={handleSubmit}>
+      <div className="titulo-register">
+        <h1>Register</h1>
+      </div>
+
+
+    <div className="container-inp">
       <div>
         <label htmlFor="name">Nombre:</label>
         <input
@@ -72,7 +84,7 @@ const Register = () => {
         />
       </div>
       <div>
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Contraseña:</label>
         <input
           type="password"
           id="password"
@@ -82,8 +94,13 @@ const Register = () => {
           required
         />
       </div>
-      <button type="submit">Enviar</button>
+
+      </div>
+      <div className="boton">
+      <button className="btm-submit" type="submit">Enviar</button>
+      </div>
     </form>
+    </div>
   );
 };
 
