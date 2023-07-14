@@ -32,11 +32,7 @@ const db = mysql.createConnection({
   database: "theStore",
 });
 
-//Esperar que se crea la tabla usuario-carrito
 
-// export const loadUsersCar = (req, res) => {
-// 	const queryProducts = 'SELECT * FROM '
-// }
 
 export const addCar = async (req, res) => {
   const token   = localStorage.getItem('accessToken');
@@ -154,27 +150,23 @@ export const calculatePrice = (req, res) => {
   let prices = 0;
   const token   = localStorage.getItem('accessToken');
   const userId  = token.id;
-  const queryCount      = 'SELECT COUNT(*) FROM purchaseList WHERE userId = ?';
-  const queryPrice      = 'SELECT price FROM products WHERE id = ?';
+  const queryCount      = 'SELECT * FROM purchaseList WHERE carId = ?';
+  // const queryPrice      = 'SELECT price FROM products WHERE id = ?';
   const queryVerifyCar  = 'SELECT * FROM userCar WHERE userId = ?';
 
 
-  db.query(queryCount, userId)
-  .then((rows) => {
-    for(let idCount = 0; idCount < rows; idCount++){
-      db.query(queryPrice, idCount)
-      .then(result => {
-        price += result;
-        checkInventory(idCount);
-      })
-      .catch(console.error("Error al calcular el precio total"))
-    }
+  db.query(queryVerifyCar, userId)
+  .then(carAssigned =>{
+    db.query(queryCount, carAssigned.insertId)
+    .then(products => {
+      for(let idCount = 0; idCount < products.length; idCount++){
+        price += products[idCount].price;
+        checkInventory(products[idCount].productId);
+      }
+    })
+    .catch(console.error("Error al acceder a los productos del carrito"))
   })
   .catch(console.error("Error al acceder a la lista de compras"))
-  // for(let countPos = 0; countPos < purchaseList.length; countPos++){
-  //   prices += purchaseList[countPos].price;
-  //   checkInventory(purchaseList[countPos].minStock);
-  // }
   return prices;
 }
 
@@ -224,26 +216,41 @@ export const createSession = async (req, res) => {
 }
 
 export const cancelPurchaseList = (req, res) => {
-	let countPos = 0;
   const token   = localStorage.getItem('accessToken');
   const userId  = token.id;
-  const queryTruncate      = 'DELETE FROM purchaseList';
-	const queryCancelReserve = 'UPDATE products SET minStock = ? WHERE id = ?';
+  const queryVerifyCar      = 'SELECT * FROM userCar WHERE userId = ?';
+  const querySelectProducts = 'SELECT * FROM purchaseList WHERE carId = ?';
+  const queryTruncate       = 'DELETE FROM purchaseList WHERE carId = ?';
+	const queryCancelReserve  = 'UPDATE products SET amount = ? WHERE id = ?';
   
-	while(countPos < purchaseList.length){
-	  db.query(query, [purchaseList[countPos].minStock + 1, purchaseList[countPos].id])
-	  .then(console.log('Reserva anulada correctamente'))
-	  .catch(console.error('Error al acceder a la reserva'))
-	  purchaseList.pop();
-	  countPos++;
-	}
+  db.query(queryVerifyCar, userId)
+  .then(carAssigned => {
+    db.query(querySelectProducts, carAssigned.insertId)
+    .then(products => {
+      for(let idCount = 0; idCount < products.length; idCount++){
+        db.query(queryCancelReserve, [products[idCount].amount + 1, products[idCount].id])
+        .catch("Error al cancelar la reserva")
+      }
+      db.query(queryTruncate, carAssigned.insertId)
+      .then(console.log("Lista de compras eliminada"))
+      .catch(console.error("Error al limpiar la lista de compras"))
+    })
+    .catch(console.error("Error al acceder a los productos"))
+  })
+  .catch(console.error("Error al acceder al carrito de compras"))
 }
   
 export const cleanPurchaseList = (req, res) => {
   const token   = localStorage.getItem('accessToken');
   const userId  = token.id;
-  const queryTruncate = 'DELETE FROM purchaseList'
-
-  db.query(queryTruncate)
-  .then
+  const queryVerifyCar  = 'SELECT * FROM userCar WHERE userId = ?';
+  const queryTruncate   = 'DELETE FROM purchaseList WHERE carId = ?'
+  db.query(queryVerifyCar, userId)
+  .then(carAssigned => {
+    db.query(queryTruncate, carAssigned.insertId)
+    .then(console.log("Carrito eliminado con exito"))
+    .catch(console.error("Error al limpiar el carrito de compras"))
+  })
+  .catch(console.error("Error al acceder al carrito de compras"))
+  
 }
